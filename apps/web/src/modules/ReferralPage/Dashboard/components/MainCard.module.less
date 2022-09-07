@@ -1,0 +1,200 @@
+.root {
+  margin-top: 22px;
+  width: 100%;
+  height: auto;
+  background: transparent linear-gradient(111deg, var(--orange-main) 0%, #e2760c 100%) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 10px #00000026;
+  border: 2px solid #ffdc8026;
+  border-radius: 10px;
+  position: relative;
+  padding: 24px 32px;
+  margin-bottom: 29px;
+
+  > img {
+    position: absolute;
+    left: 121px;
+    top: 50%;
+    transform: translateY(-50%);
+    user-select: none;
+  }
+
+  .bigTitle {
+    width: 142px;
+    height: 107px;
+    line-height: 45px;
+    text-align: left;
+    font-size: 45px;
+    font-weight: 900;
+    color: #40454f;
+  }
+}
+
+.miniCard {
+  background: rgba(64, 69, 79, 0.95) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 10px #00000026;
+  border: 2px solid #cccccc1a;
+  border-radius: 10px;
+  position: relative;
+  height: 100%;
+  padding: 35px 16px 0px 16px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  .number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--orange-main) 0% 0% no-repeat padding-box;
+    border: 2px solid #ffffff80;
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: 900;
+    color: #ffffff;
+    font-family: var(--avenir);
+    line-height: 36px;
+  }
+  div {
+    img {
+      height: 36px;
+    }
+    h2 {
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 0.16px;
+      color: #ffffff;
+      margin-top: 15px;
+    }
+  }
+  p {
+    color: var(--orange-main);
+    font-size: 12px;
+    letter-spacing: 0.12px;
+  }
+}
+
+.label {
+  font-size: 13px;
+  color: #8b4500;
+  font-weight: normal;
+  margin-bottom: 8px;
+}
+
+.inputLabel {
+  background: #ffffff 0% 0% no-repeat padding-box !important;
+  border: 2px solid #8b450040;
+  border-radius: 10px;
+  color: var(--dark-background-light);
+  label {
+    font-size: 16px !important;
+    font-weight: 900 !important;
+    padding-top: 4px;
+    color: var(--dark-background-light);
+  }
+}
+
+.inputLabelNoPadding {
+  padding-left: 0;
+}
+
+.input {
+  > span {
+    cursor: text !important;
+    color: var(--dark-background-light) !important;
+  }
+  input {
+    font-size: 16px;
+    font-family: var(--avenir);
+    letter-spacing: 0.16px;
+    color: var(--dark-background-light) !important;
+    padding-top: 6px !important;
+    &:disabled {
+      cursor: text !important;
+      color: var(--dark-background-light) !important;
+    }
+  }
+}
+
+.inputSuffix {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .verticalDivider {
+    width: 1px;
+    height: 24px;
+    background: rgba(139, 69, 0, 0.25);
+    margin: 0px 12px;
+  }
+}
+
+.refferalId {
+  width: 230px;
+  margin-bottom: 18px;
+}
+.refferalId :global label {
+  text-transform: none;
+}
+
+.rateInfo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+  .rateInput {
+    width: 110px;
+    text-align: center;
+    padding: 0;
+  }
+  input {
+    display: none;
+  }
+}
+
+.updateRateButton {
+  all: unset;
+  cursor: pointer;
+  &:hover {
+    color: #000;
+  }
+  > * {
+    font-size: 24px;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.refferalLink {
+  width: 75%;
+}
+
+.popover {
+  :global .ant-popover-inner {
+    background: #fff;
+    > div {
+      padding: 6px 12px 0px 12px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    padding: 15px;
+
+    > img {
+      display: none;
+    }
+  }
+  .refferalLink {
+    width: 100%;
+  }
+}

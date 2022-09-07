@@ -1,0 +1,346 @@
+/*Reusable css*/
+.container {
+  max-width: 1366px;
+  margin: 0 auto;
+}
+
+.container-fluid {
+  max-width: 2048px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.primary {
+  color: var(--primary) !important;
+}
+
+.secondary {
+  color: #bfc1c3 !important;
+}
+
+.success {
+  color: var(--green-indicator) !important;
+}
+
+.positive {
+  color: var(--positive) !important;
+}
+.negative {
+  color: var(--negative) !important;
+}
+
+.error {
+  color: var(--pink-indicator) !important;
+}
+.error-light {
+  color: var(--error) !important;
+}
+
+.disabled {
+  color: var(--tint-2) !important;
+}
+
+.disabled-3 {
+  color: var(--tint-3) !important;
+}
+
+.disabled-4 {
+  color: var(--tint-4) !important;
+}
+
+.default {
+  color: var(--text-color) !important;
+}
+
+.blue {
+  color: var(--accent-blue) !important;
+}
+.ocean {
+  color: #03f1ea !important;
+}
+.black {
+  color: #000 !important;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.avenir {
+  font-family: 'Avenir';
+}
+
+.cursor {
+  cursor: pointer;
+}
+.not-allowed {
+  cursor: not-allowed;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.justify {
+  text-align: justify;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.f-column {
+  flex-direction: column;
+}
+
+.relative {
+  position: relative;
+}
+
+.f-center {
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.f-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.f-end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.f-around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.f-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.f-align-end {
+  align-items: flex-end;
+}
+
+.divider-x {
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff80;
+}
+
+.divider-y {
+  width: 1px;
+  height: 40px;
+  background-color: #ffffff80;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+.normal {
+  text-transform: none !important;
+}
+
+.break-word {
+  word-break: break-word;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.white {
+  color: #fff;
+}
+
+/* Spacing */
+
+.m-0 {
+  margin: 0;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+.my-8 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
+.-mr-15 {
+  margin-right: -15px;
+}
+
+/* Font global */
+.bolder {
+  font-weight: 900 !important;
+}
+
+.bold {
+  font-weight: 700 !important;
+}
+
+.medium {
+  font-weight: 500 !important;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300 !important;
+}
+
+.thin {
+  font-weight: 200 !important;
+}
+
+/* Text size */
+.text-45 {
+  font-size: 45px !important;
+  color: #ffffff;
+}
+
+.text-30 {
+  font-size: 30px !important;
+  color: #ffffff;
+}
+
+.text-28 {
+  font-size: 28px !important;
+  color: #ffffff;
+}
+
+.text-26 {
+  font-size: 26px !important;
+  color: #ffffff;
+}
+
+.text-24 {
+  font-size: 24px !important;
+  color: #ffffff;
+}
+
+.text-22 {
+  font-size: 22px !important;
+  color: #ffffff;
+}
+
+.text-20 {
+  font-size: 20px !important;
+  color: #ffffff;
+}
+
+.text-18 {
+  font-size: 18px !important;
+  color: #ffffff;
+}
+
+.text-16 {
+  font-size: 16px !important;
+  color: #ffffff;
+}
+
+.text-14 {
+  font-size: 14px !important;
+  color: #ffffff;
+}
+
+.text-12 {
+  font-size: 12px !important;
+  color: #ffffff;
+}
+.text-11 {
+  font-size: 11px !important;
+}
+.text-10 {
+  font-size: 10px !important;
+}
+.text-9 {
+  font-size: 9px !important;
+  color: #ffffff;
+}
+
+.u-f-l::first-letter {
+  text-transform: uppercase;
+}
+
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+
+.icon-hover {
+  &:hover {
+    .two-tone-active {
+      fill: #ffba00;
+    }
+  }
+}
+.icon-active {
+  .two-tone-active {
+    fill: #ffba00;
+  }
+}
+
+.drag-icon {
+  color: #788686;
+  margin-left: 5px;
+  cursor: move;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.block {
+  display: block;
+}
+.pre-line {
+  white-space: pre-line;
+}
+
+@media (max-width: 1270px) {
+  .container-fluid {
+    padding: 0px 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .drag-icon {
+    display: none !important;
+  }
+}

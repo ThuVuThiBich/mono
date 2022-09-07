@@ -1,0 +1,44 @@
+.root {
+  padding: 21px 24px 12px 21px;
+  width: 100%;
+}
+
+.balanceWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.balanceWrapper > div:nth-child(2) {
+  margin-left: 22px;
+}
+
+.balanceTextWrapper {
+  text-align: right;
+}
+
+/* Deposit and withdraw */
+.card {
+  width: 100%;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 3px 6px #00000026;
+}
+
+.cardBalance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 25px;
+  padding-top: 15px;
+  height: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(64, 69, 79, 0.25);
+    * {
+      color: var(--orange-main) !important;
+    }
+  }
+}

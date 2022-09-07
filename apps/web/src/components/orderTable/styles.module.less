@@ -1,0 +1,51 @@
+.popconfirm {
+  font-weight: 300;
+}
+
+.popconfirm > span {
+  margin-right: 4px;
+  color: #788686;
+}
+
+.btnCancel:hover,
+.btnCancel:focus {
+  border-color: transparent;
+}
+
+.btnCancel[disabled],
+.btnCancel[disabled]:hover {
+  border-color: transparent;
+  background: transparent;
+}
+
+.btnCancel {
+  border-color: transparent;
+  height: auto !important;
+  box-shadow: none !important;
+  padding: 0px !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.btnCancel > span {
+  margin-right: 8px;
+}
+
+.filled {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 5px;
+  margin-top: -3px;
+  &::before {
+    content: '';
+    background: #ffffff26;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
+}

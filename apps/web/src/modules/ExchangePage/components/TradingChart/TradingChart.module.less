@@ -1,0 +1,251 @@
+.root {
+  /* margin: 24px auto; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chartWrap {
+  flex-grow: 1;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+}
+.actionIcon {
+  color: #788686;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.textBlock {
+  display: block;
+}
+
+.textStrong {
+  font-size: 16px;
+  font-weight: 600;
+}
+.nowrap {
+  white-space: nowrap;
+}
+
+.textSmall {
+  font-size: 12px;
+  font-weight: 300;
+}
+.textDark {
+  color: #797979;
+}
+[data-theme='light'] .textDark {
+  color: #22242a;
+}
+
+.textSuccess {
+  color: var(--positive);
+}
+.textDanger {
+  color: var(--negative);
+}
+.sortDown {
+  margin-right: 4px;
+  vertical-align: -0.05em;
+}
+.sortUp {
+  margin-right: 4px;
+  vertical-align: -0.35em;
+}
+
+[data-theme='light'] ._24_change_positive {
+  background: rgba(0, 254, 154, 0.1);
+  height: 18px;
+  padding: 0px 2px;
+}
+
+[data-theme='light'] ._24_change_negative {
+  background: rgba(212, 1, 89, 0.1);
+  height: 18px;
+  padding: 0px 2px;
+}
+
+.percentage {
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+  margin-left: 10px;
+  img {
+    position: static;
+    margin-right: 3px;
+    margin-top: -5px;
+  }
+}
+[data-theme='light'] .percentagePositive {
+  color: #09625d;
+}
+
+[data-theme='light'] .percentageNegative {
+  color: #b30435;
+}
+
+.dropdown {
+  font-size: 12px;
+  cursor: pointer;
+  position: relative;
+}
+.dropdownLabel {
+  display: inline-block;
+  margin-right: 7px;
+  color: #ffba00;
+}
+.fullChartButton {
+  border: none;
+  outline: none;
+  background: rgba(64, 69, 79, 0.25);
+  border-radius: 10px;
+  padding: 3px;
+  height: 44px;
+  width: 44px;
+  /* cursor: pointer; */
+}
+
+/* fullscreen */
+
+.fullscreen {
+  z-index: 999999;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  background: #2c303e;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+.fullscreen .textStrong {
+  font-size: 18px;
+}
+.fullscreen .textSmall {
+  font-size: 14px;
+}
+
+.fullscreen .dropdown {
+  font-size: 14px;
+}
+.fullscreen .dropdownLabel {
+  margin-right: 20px;
+}
+.fullscreen .actionIcon {
+  margin-left: 10px;
+}
+
+/*----------------- Header Grid -----------------------*/
+
+.header {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px 24px;
+}
+
+.scroller {
+  display: flex;
+  overflow: auto;
+  justify-content: space-around;
+  flex: 1;
+  gap: 0px 24px;
+}
+
+.pairArea {
+  grid-area: A;
+}
+
+.lastPriceArea {
+  grid-area: B;
+}
+
+.changeArea {
+  grid-area: C;
+}
+
+.highArea {
+  grid-area: D;
+}
+
+.lowArea {
+  grid-area: E;
+}
+
+.volumeArea {
+  grid-area: F;
+}
+
+.chartOptionArea {
+  grid-area: G;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+  // position: absolute;
+  // top: 10px;
+  // right: 20px;
+}
+
+@media (max-width: 1400px) {
+  .scroller {
+    max-width: 250px;
+  }
+
+  .scroller > * {
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .scroller {
+    max-width: unset;
+  }
+  .scroller > * {
+    min-width: unset;
+  }
+}
+
+@media (max-width: 960px) {
+  .header {
+    display: grid;
+    gap: 16px 24px;
+    grid-template-areas:
+      'A B E G'
+      'C D F G';
+  }
+}
+
+@media (max-width: 576px) {
+  .root {
+    height: calc(100vh - 109px);
+  }
+
+  .chartOptionArea {
+    display: none;
+  }
+
+  .header {
+    grid-template-areas:
+      'A B C'
+      'E D F';
+  }
+}
+
+@media (max-width: 410px) {
+  .header {
+    display: grid;
+    gap: 6px 12px;
+    grid-template-areas:
+      'A A B B'
+      'C C E E'
+      'D D F F';
+  }
+}

@@ -1,0 +1,30 @@
+.rowLastPrice td {
+  color: var(--orange-main);
+}
+
+.rowLastPrice {
+  background: rgba(191, 193, 195, 0.15);
+}
+
+[data-theme='light'] .rowLastPrice {
+  background: rgba(255, 186, 0, 0.1);
+}
+
+.tableLastPrice {
+  padding-right: 11px;
+}
+
+.tableLastPrice tr > *:nth-child(3) {
+  text-align: left !important;
+  padding-left: 5px !important;
+}
+
+.tableLastPrice tr > *:nth-child(2) {
+  padding-right: 8px !important;
+}
+
+@media (max-width: 960px) {
+  .tableLastPrice {
+    padding-right: 0px;
+  }
+}

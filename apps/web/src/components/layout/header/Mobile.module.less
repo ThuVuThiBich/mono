@@ -1,0 +1,88 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+.menuButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.burgerMenu {
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+}
+
+.burgerMenu::after,
+.burgerMenu::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.burgerMenu::before {
+  top: 8px;
+}
+.burgerMenu::after {
+  bottom: 8px;
+}
+
+/* Drawer */
+
+.drawer :global .ant-drawer-body {
+  padding: 0;
+  padding-top: 48px;
+}
+
+.menu {
+  border-right-color: transparent;
+  font-size: 16px;
+}
+
+.menu :global .ant-menu-item-icon {
+  font-size: 20px;
+}
+
+.menu :global .ant-menu-item {
+  height: 48px;
+}
+
+.menu,
+.menu li,
+.menu ul {
+  background: none !important;
+}
+
+.menuStandalone {
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.menuStandalone svg {
+  font-size: 24px;
+}
+
+.uppercase::first-letter {
+  display: block;
+  text-transform: uppercase;
+}
+
+.authWrap {
+  width: 100%;
+  padding: 0px 24px;
+  margin-bottom: 18px;
+}
+

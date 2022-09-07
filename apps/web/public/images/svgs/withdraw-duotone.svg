@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12.386" height="14.33" viewBox="0 0 12.386 14.33">
+  <g id="withdraw-duotone" transform="translate(0 3.492)" opacity="0.5">
+    <g id="wallet-duotone" transform="translate(0 0)">
+      <path id="Path_2699" data-name="Path 2699" d="M10.064,5.806a.774.774,0,1,0,.774.774A.774.774,0,0,0,10.064,5.806ZM10.451,0h-8.9A1.548,1.548,0,0,0,0,1.548a.774.774,0,0,0,.774.774H1.935a.387.387,0,0,1,0-.774h9.29a.387.387,0,0,0,.387-.387A1.161,1.161,0,0,0,10.451,0Z" transform="translate(0 0)" fill="#9aa3a7"/>
+      <path id="Path_2700" data-name="Path 2700" d="M11.157.774H.774A.774.774,0,0,1,0,0V7.741A1.548,1.548,0,0,0,1.548,9.29h9.609a1.2,1.2,0,0,0,1.229-1.161V1.935A1.2,1.2,0,0,0,11.157.774Z" transform="translate(0 1.548)" fill="#fff"/>
+    </g>
+    <path id="Path_2701" data-name="Path 2701" d="M8.8,2.35,6.578.11a.372.372,0,0,0-.636.262V1.886H.371A.371.371,0,0,0,0,2.257V3a.371.371,0,0,0,.371.371H5.94V4.882a.372.372,0,0,0,.636.262L8.8,2.907A.4.4,0,0,0,8.8,2.35Z" transform="translate(3.566 5.42) rotate(-90)" fill="#9aa3a7"/>
+  </g>
+</svg>

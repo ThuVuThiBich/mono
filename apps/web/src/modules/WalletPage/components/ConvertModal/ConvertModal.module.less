@@ -1,0 +1,123 @@
+.header {
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 8px;
+    margin-top: -5px;
+  }
+  h1 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.divider {
+  margin: 10px 0px 20px 0px !important;
+  text-align: center;
+}
+
+.body {
+  margin-top: 24px;
+  // margin-bottom: 40px;
+}
+
+.selectLabel {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-transform: uppercase;
+  img {
+    margin-top: -5px;
+    margin-right: 8px;
+  }
+}
+
+.available {
+  margin-top: 8px !important;
+  margin-bottom: 13px !important;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: rgba(255, 255, 255, 0.25);
+
+  div:nth-child(1) {
+    margin-right: 18px;
+    img {
+      margin-top: -6px;
+      margin-right: 8px;
+    }
+    font-size: 12px;
+    font-weight: 500;
+  }
+  div:nth-child(2) {
+    font-family: 'Avenir';
+    span {
+      margin-left: 8px;
+    }
+  }
+}
+
+.submitWrapper {
+  // position: absolute !important;
+  // bottom: -20px;
+  // left: 50%;
+  // transform: translateX(-50%);
+  margin-top: 16px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.infoBox {
+  position: relative;
+  padding: 14px 18px;
+  & > * {
+    margin-bottom: 8px;
+  }
+
+  .refreshBox {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 32px;
+    opacity: 1;
+    transition: all 0.5s;
+  }
+}
+
+.btnExchange {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 51px;
+  background: var(--primary);
+  box-shadow: 0px 0px 10px #00000026;
+  border-radius: 50px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    filter: brightness(80%);
+  }
+}

@@ -1,0 +1,100 @@
+.tableWrapper {
+  width: 100%;
+  position: relative;
+  padding: 21px 21px 12px 21px;
+}
+
+.filterWrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 35px 0;
+}
+
+.btnReset {
+  all: unset;
+  height: 24px !important;
+  width: 24px !important;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  width: fit-content;
+  border: 2px solid #5f5f5f40;
+  background: #40454f26 !important;
+  box-shadow: none;
+  label {
+    color: var(--tint-3);
+    text-transform: none;
+  }
+}
+
+.inputPair {
+  width: 180px;
+}
+
+.inputType {
+  width: 266px;
+}
+
+/* Remove antd table default styles */
+.table {
+  max-width: 100%;
+}
+.table :global .ant-table,
+.table :global .ant-spin-container::after,
+.table :global .ant-table-placeholder:hover > td {
+  background: none !important;
+}
+
+.table thead tr th::before,
+.table thead tr th {
+  background: none !important;
+  border: none !important;
+}
+
+.table tr td {
+  background: none !important;
+  border: none !important;
+}
+
+.table :global .ant-table-column-title {
+  z-index: unset;
+}
+
+.table tr:hover > td {
+  color: var(--orange-main);
+}
+
+.table {
+  margin-bottom: 5px;
+}
+
+@media (max-width: 576px) {
+  .filterWrapper {
+    > div {
+      > * {
+        width: 100%;
+      }
+    }
+  }
+
+  .btnExport {
+    margin-top: 12px;
+  }
+
+  .input {
+    width: 100% !important;
+  }
+
+  .inputPair {
+    width: 100% !important;
+  }
+
+  .inputType {
+    width: 100% !important;
+  }
+}

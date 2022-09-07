@@ -1,0 +1,75 @@
+.root {
+  width: 100%;
+  position: relative;
+  padding: 21px 21px 12px 21px;
+}
+
+/* Remove antd table default styles */
+.table {
+  max-width: 100%;
+}
+.table :global .ant-table,
+.table :global .ant-spin-container::after,
+.table :global .ant-table-placeholder:hover > td {
+  background: none !important;
+}
+
+.table thead tr th::before,
+.table thead tr th {
+  background: none !important;
+  border: none !important;
+  color: #9aa3a7;
+}
+
+.table tr td {
+  background: none !important;
+  border: none !important;
+}
+
+/* ------------------------------------------ */
+
+/* Table styles */
+.table tr:hover > td {
+  color: var(--orange-main);
+}
+
+.table {
+  margin-bottom: 5px;
+  max-width: 100%;
+}
+
+.iconConvert {
+  border: none !important;
+}
+
+.popconfirm {
+  font-weight: 300;
+}
+
+.popconfirm > span {
+  margin-right: 4px;
+  color: #788686;
+}
+
+.btnCancel:hover,
+.btnCancel:focus {
+  border-color: transparent;
+}
+
+.btnCancel[disabled],
+.btnCancel[disabled]:hover {
+  border-color: transparent;
+  background: transparent;
+}
+
+.btnCancel {
+  border-color: transparent;
+  height: auto !important;
+  box-shadow: none !important;
+  padding: 0px !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.btnCancel > span {
+  margin-right: 8px;
+}

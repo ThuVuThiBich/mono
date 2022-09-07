@@ -1,0 +1,54 @@
+.filterGroup {
+  width: 100%;
+  padding: 2.5px 4px;
+}
+
+.filterGroup :global .ant-space-item {
+  width: 100%;
+}
+
+.filterGroup :global .ant-space-item .ant-radio-group .ant-radio-button-wrapper {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.filterGroup :global .ant-radio-button-wrapper {
+  overflow: hidden;
+}
+.filterGroup :global .ant-radio-button-wrapper:hover {
+  background: none !important;
+}
+
+.buySelect :global .ant-radio-button-checked {
+  background-color: rgba(0, 254, 154, 0.25) !important;
+}
+
+.buySelect :global .ant-radio-button-checked ~ span {
+  color: var(--green-indicator) !important;
+}
+
+.sellSelect :global .ant-radio-button-checked {
+  background-color: rgba(255, 0, 106, 0.25) !important;
+}
+
+.sellSelect :global .ant-radio-button-checked ~ span {
+  color: var(--pink-indicator) !important;
+}
+
+/* Light */
+
+[data-theme='light'] .buySelect :global .ant-radio-button-checked {
+  background-color: var(--positive) !important;
+}
+
+[data-theme='light'] .buySelect :global .ant-radio-button-checked ~ span {
+  color: #fff !important;
+}
+
+[data-theme='light'] .sellSelect :global .ant-radio-button-checked {
+  background-color: var(--negative) !important;
+}
+
+[data-theme='light'] .sellSelect :global .ant-radio-button-checked ~ span {
+  color: #fff !important;
+}

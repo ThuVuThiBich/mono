@@ -1,0 +1,108 @@
+.header {
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 8px;
+    margin-top: -5px;
+  }
+  h1 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.divider {
+  margin: 10px 0px 20px 0px !important;
+  text-align: center;
+}
+
+.body {
+  margin-top: 24px;
+
+  .form {
+    > * {
+      margin-top: 18px;
+    }
+  }
+}
+
+.selectLabel {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-transform: uppercase;
+  img {
+    margin-top: -5px;
+    margin-right: 8px;
+  }
+}
+
+.addressLabel {
+  margin-left: 20px;
+  margin-top: 22px;
+}
+
+.addressWrap {
+  background: #40454f26 0% 0% no-repeat padding-box;
+  border: 2px solid #5f5f5f40;
+  border-radius: 10px 10px 0px 0px;
+  margin-top: 8px !important;
+
+  .inputAddress {
+    border: none;
+    padding-left: 8px;
+    input {
+      color: var(--orange-main) !important;
+      margin-right: 8px;
+      text-align: left;
+      cursor: default;
+    }
+    .inputSuffix {
+      padding-left: 9px;
+      border-left: 1px solid rgba(191, 193, 195, 0.25);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    :global span.ant-input-affix-wrapper-disabled {
+      cursor: default;
+      background-color: transparent;
+    }
+  }
+}
+
+.verticalDivider {
+  border-left: 1px solid rgba(191, 193, 195, 0.25);
+  height: 28px;
+  width: 1px;
+  margin: 0px 10px;
+}
+
+.popover {
+  :global .ant-popover-inner {
+    background: #fff;
+    > div {
+      padding: 6px 12px 0px 12px;
+    }
+  }
+}
+
+.warningBox {
+  padding: 14px 18px;
+  border-top: none !important;
+  border-radius: 0px 0px 10px 10px !important;
+}
+
+.mb19 {
+  margin-bottom: 19px;
+}
+
+.memoInput {
+  border: none !important;
+  border-top: 2px solid #5f5f5f40 !important;
+  border-bottom: none !important;
+  border-radius: 0 !important;
+}

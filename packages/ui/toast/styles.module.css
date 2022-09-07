@@ -1,0 +1,11 @@
+.iconSuccess {
+  color: var(--success);
+}
+
+.iconError {
+  color: var(--error);
+}
+
+.iconWarning {
+  color: var(--orange-main);
+}

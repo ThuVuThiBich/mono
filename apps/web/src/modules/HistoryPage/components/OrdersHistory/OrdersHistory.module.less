@@ -1,0 +1,86 @@
+.mainContainer {
+  margin: 0;
+  position: relative;
+}
+
+.root {
+  width: 100%;
+  position: relative;
+  padding: 21px 21px 12px 21px;
+  min-height: 264px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.iconConvert {
+  margin-left: 16px;
+}
+
+/* Remove antd table default styles */
+.table {
+  max-width: 100%;
+}
+.table :global .ant-table,
+.table :global .ant-spin-container::after,
+.table :global .ant-table-placeholder:hover > td {
+  background: none !important;
+}
+
+.table thead tr th::before,
+.table thead tr th {
+  background: none !important;
+  border: none !important;
+}
+
+.table tr td {
+  background: none !important;
+  border: none !important;
+}
+
+.table tr:hover > td {
+  color: var(--orange-main);
+}
+
+.table :global .ant-table-column-title {
+  z-index: unset;
+}
+
+/* ------------------------------------------ */
+
+@media (max-width: 992px) {
+  .root {
+    padding: 12px;
+  }
+}
+@media (max-width: 640px) {
+  .root {
+    padding: 12px 0px;
+    height: auto;
+  }
+
+  .iconConvert,
+  .title {
+    display: none;
+  }
+
+  .tabWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .tabSelector label {
+    padding: 0px 12px !important;
+  }
+}

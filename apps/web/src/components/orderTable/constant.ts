@@ -1,0 +1,13 @@
+export const ORDER_CANCELED = '4';
+export const ORDER_COMPLETE = '3';
+export const ORDER_ID = 0;
+export const ORDER_PAIR_NAME = 1;
+export const ORDER_TIME = 2;
+export const ORDER_NUMBER_GET = 3;
+export const ORDER_TOTAL = 4;
+export const ORDER_PRICE = 5;
+export const ORDER_AVG_PRICE = 6;
+export const ORDER_TYPE = 7;
+export const ORDER_STOP_LOSS_ID = 8;
+export const ORDER_STATUS = 9;
+export const ORDER_LIMIT_PRICE = 10;

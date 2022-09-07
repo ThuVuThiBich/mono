@@ -1,0 +1,39 @@
+.root {
+  padding-top: var(--nav-bar-height);
+  min-height: calc(100vh - var(--nav-bar-height));
+  margin: 12px auto 24px auto;
+}
+
+.blur {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: 2;
+  display: block;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+[data-theme='light'] .blur {
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+}
+
+.tradingChartCol {
+  z-index: 1;
+}
+.mt24 {
+  margin-top: 24px;
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .root {
+    margin-top: 0;
+  }
+}

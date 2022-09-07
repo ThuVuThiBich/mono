@@ -1,0 +1,39 @@
+.root {
+  width: 100%;
+  margin-bottom: 100px;
+  h1 {
+    text-align: center;
+    font-size: 45px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 57px;
+    margin-bottom: 9px;
+  }
+  p {
+    color: var(--primary);
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 39px 0px 33px 0px;
+    > div {
+      padding: 4px 6px;
+      &:hover,
+      span {
+        color: #ffffff !important;
+      }
+    }
+    :global .ant-radio-button-wrapper-checked {
+      background-color: var(--primary) !important;
+    }
+  }
+}
+
+.tables {
+  max-width: 821px;
+  margin: 0 auto;
+}

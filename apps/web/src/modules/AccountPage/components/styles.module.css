@@ -1,0 +1,6 @@
+@media (max-width: 576px) {
+  .title {
+    font-size: 18px !important;
+    white-space: nowrap;
+  }
+}

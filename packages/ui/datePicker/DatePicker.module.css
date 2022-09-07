@@ -1,0 +1,46 @@
+.input,
+.input > div,
+.input > div > input {
+  background-color: transparent;
+  border-color: unset;
+  box-shadow: unset;
+  border: none;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.input :global .ant-picker-suffix {
+  font-size: 18px;
+}
+
+.input :global .ant-picker-clear {
+  background-color: transparent !important;
+  right: -8px;
+  font-size: 18px;
+}
+
+/* Placeholder */
+.input > div > input:placeholder-shown {
+  color: #788686;
+  font-size: 16px !important;
+}
+
+/* Props style */
+.input span[role='img'] {
+  color: #ffffff;
+}
+
+.small > div > input {
+  font-size: 14px !important;
+}
+
+.middle > div > input {
+  font-size: 16px !important;
+}
+
+.large > div > input {
+  font-size: 18px !important;
+}

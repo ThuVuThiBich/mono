@@ -1,0 +1,65 @@
+.root {
+  padding: 24px;
+  /* position: relative; */
+}
+
+.headInfo {
+  height: 98px;
+  margin-bottom: 40px;
+}
+
+.textChangePass {
+  text-align: right;
+  float: right;
+}
+
+.avatarPic {
+  height: 100%;
+}
+
+.avatar {
+  justify-self: center;
+  margin-right: 25px;
+}
+
+.btnGo {
+  width: unset !important;
+  height: unset !important;
+  padding: 5px 22px !important;
+  font-size: 12px !important;
+}
+
+.headLeft {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+@media (max-width: 1270px) {
+  .avatar {
+    width: 72px !important;
+    height: 72px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .avatar {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .root {
+    padding: 12px;
+  }
+
+  .avatar {
+    margin-right: 12px;
+  }
+
+  .textChangePass {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}

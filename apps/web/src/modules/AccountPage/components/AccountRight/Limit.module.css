@@ -1,0 +1,67 @@
+.root {
+  padding: 12px;
+}
+
+.icon {
+  width: 100%;
+  float: right;
+  color: #b1b5b7;
+  cursor: pointer;
+}
+
+.iconInfo {
+  width: 100%;
+  color: #b1b5b7;
+}
+
+.form {
+  padding: 4px 12px;
+}
+
+.textLimit {
+  border-bottom: 1px solid #bfc1c3;
+  color: #ffffff;
+}
+
+.report {
+  padding: 8px 12px;
+  background: rgb(69 71 78 / 0%);
+  border-radius: 5px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.link {
+  color: #bfc1c3 !important;
+  text-decoration: underline;
+  margin-left: 8px;
+}
+
+.link:hover,
+.link:focus {
+  opacity: 0.8;
+}
+
+.tag {
+  color: #ffba00;
+  background: #ffdc8054;
+  float: right;
+  border: 0px;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
+
+.ant-tooltip-inner {
+  color: #ffba00;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+@media (max-width: 576px) {
+  .tag {
+    float: none;
+    margin-bottom: 12px;
+  }
+}

@@ -1,0 +1,61 @@
+.wrapper {
+  display: inline-block;
+}
+
+.symbolWrap {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 5px;
+  border-radius: 50px;
+  background: #40454f;
+  width: max-content;
+  z-index: 2;
+}
+
+.blur {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+}
+
+[data-theme='light'] .blur {
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+}
+
+[data-theme='light'] .symbolWrap {
+  background: #ffffff;
+  box-shadow: 0px 0px 10px #00000026;
+}
+
+.symbolLabel {
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-block;
+  margin: 0 8px 0 8px;
+}
+
+.iconChevronDown {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.symbol * {
+  cursor: pointer;
+}
+
+.coinImage {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}

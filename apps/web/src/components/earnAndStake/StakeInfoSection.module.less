@@ -1,0 +1,93 @@
+.root {
+  padding: 18px 24px;
+  max-width: 809px;
+  margin: 0 auto;
+  margin-top: 52px;
+  min-height: 175px;
+  position: relative;
+}
+
+.lockedBalance {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 900;
+  font-family: 'Avenir';
+  word-break: break-all;
+  span {
+    font-size: 22px;
+    font-weight: 500;
+  }
+}
+
+.lockedBalanceExchange {
+  color: var(--tint-3);
+  font-size: 18px;
+  // font-weight: 900;
+  font-family: 'Avenir';
+}
+
+.stakedToken {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 900;
+  font-family: 'Avenir';
+  text-align: center;
+}
+
+.portfolioButton {
+  all: unset;
+  cursor: pointer;
+  background: rgba(191, 193, 195, 0.15);
+  box-shadow: 0px 0px 10px #00000026;
+  border-radius: 20px;
+  padding: 4px 14px 3px 14px;
+  color: var(--orange-main);
+  img {
+    margin-left: 8px;
+  }
+}
+
+.pnlBox {
+  margin-top: 19px;
+}
+
+.row {
+  justify-content: space-between;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 767.98px) {
+  .balance {
+    width: 70%;
+  }
+
+  .token {
+    width: 30%;
+  }
+
+  .right {
+    margin-top: 18px;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 562px) {
+  .balance {
+    width: 100%;
+  }
+
+  .balanceWrap {
+    width: 100%;
+  }
+
+  .token {
+    width: 100%;
+  }
+}

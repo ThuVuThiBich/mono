@@ -1,0 +1,53 @@
+.root {
+  padding-top: var(--nav-bar-height);
+  margin: 75px auto 125px auto;
+  min-height: calc(100vh - var(--nav-bar-height) - 150px);
+  width: 500px;
+  position: relative;
+}
+.howTo {
+  margin-bottom: 35px;
+}
+
+.stepper {
+  max-width: 450px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+/* Update this to align the title */
+.stepper :global .ant-steps-item-content {
+  width: 160px !important;
+}
+
+.title {
+  font-size: 22px !important;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 900 !important;
+  color: #ffffff;
+}
+
+.btnGoBack {
+  position: absolute;
+  left: 20px;
+  bottom: -20px;
+  z-index: 1;
+}
+
+@media (max-width: 567px) {
+  .root {
+    padding: 0 8px;
+    width: unset;
+  }
+
+  .stepper {
+    max-width: 450px;
+    margin-left: 0px;
+  }
+
+  /* Update this to align the title */
+  .stepper :global .ant-steps-item-content {
+    width: 110px !important;
+  }
+}

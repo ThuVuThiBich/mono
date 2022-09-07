@@ -1,0 +1,89 @@
+.root {
+  padding: 15px 15px 0;
+  height: 100%;
+  position: relative;
+}
+
+.actionIcon {
+  color: #788686;
+  margin-left: 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+  li {
+    width: max-content;
+    padding: 6px 16px;
+    border-radius: 8px 8px 0px 0px;
+    cursor: pointer;
+    transition: all 0.5s;
+    border: 2px solid transparent;
+    border-bottom: none;
+  }
+  li.active {
+    border-color: #cccccc1a;
+  }
+}
+
+.borderLess {
+  border-top-left-radius: 0px;
+}
+
+.header {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.header :global .ant-tabs-tab {
+  padding-bottom: 6px;
+}
+
+.header :global .ant-tabs-top > .ant-tabs-nav::before {
+  border-bottom: 1px solid #bfc1c340;
+}
+
+.header :global .ant-space-item {
+  width: 100%;
+}
+
+.spotHidden {
+  display: none;
+}
+
+.typeFilter {
+  background-color: rgb(128 128 128 / 21%);
+  width: 100%;
+  justify-content: space-around;
+  & > div > div {
+    column-gap: 0px;
+  }
+
+  & :global .ant-radio-button-wrapper {
+    padding-bottom: 3px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    height: 575px;
+  }
+}
+
+.customTabs {
+  width: 100%;
+}

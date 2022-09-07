@@ -1,0 +1,129 @@
+.root {
+  padding-left: 0;
+}
+
+.button {
+  width: 185px;
+  max-height: 41px;
+  padding: 11px 21px !important;
+  border: 2px solid var(--orange-main);
+  border-radius: 999px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  color: var(--text-color);
+  &:hover {
+    span,
+    svg {
+      color: var(--orange-main);
+    }
+  }
+  // svg {
+  //   color: var(--text-color);
+  // }
+
+  span {
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .walletImg {
+    padding-right: 10px;
+    padding-bottom: 6px;
+  }
+}
+
+[data-theme='light'] .button {
+  box-shadow: 0px 0px 10px #00000026;
+  border: none;
+}
+
+.overlay {
+  display: flex;
+  align-items: flex-start;
+  > div:nth-child(1) {
+    margin-right: 8px;
+  }
+}
+
+.box {
+  width: 245px;
+  background: var(--dark-background);
+  border-radius: 4px;
+  padding: 15px 17px;
+  .title {
+    color: var(--tint-2);
+    img {
+      padding-bottom: 4px;
+      margin-right: 8px;
+    }
+    svg {
+      margin-right: 8px;
+    }
+  }
+  .divider {
+    margin: 11px 0px 8px 0px;
+  }
+  .subAccount {
+    width: 100%;
+    text-align: right;
+    padding: 0 !important;
+    height: 36px !important;
+
+    &:hover {
+      color: var(--orange-main) !important;
+    }
+    span {
+      // text-transform: uppercase;
+      margin-right: 8px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 180px;
+    }
+    .checkIcon {
+      min-width: 12px;
+    }
+  }
+}
+
+.accountScroller {
+  max-height: 300px;
+  overflow: auto;
+}
+
+.btnCreate {
+  width: 100%;
+  color: var(--orange-main);
+  text-align: right;
+  display: inline-block;
+  padding-right: 8px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+
+  &:hover {
+    color: var(--green-indicator);
+    opacity: 0.8;
+  }
+  svg {
+    margin-left: 8px;
+  }
+}
+
+.btnTransfer {
+  width: 100%;
+  color: var(--orange-main);
+  text-align: right;
+  display: inline-block;
+  padding-right: 8px;
+  &:hover {
+    color: var(--accent-blue);
+    opacity: 0.8;
+  }
+  svg {
+    margin-left: 8px;
+  }
+}

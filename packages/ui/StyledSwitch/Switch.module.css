@@ -1,0 +1,24 @@
+.root :global .ant-switch {
+  background-color: transparent;
+  border: 1px solid #9aa3a780;
+  box-shadow: none !important;
+  height: 23px;
+}
+.root :global .ant-switch-checked {
+  background-color: transparent;
+}
+
+.root :global .ant-switch-handle::before {
+  background-image: url('/images/svgs/slider.svg');
+  width: 18px;
+  height: 18px;
+  margin-top: -0.5px;
+}
+
+.root :global .ant-select-single.ant-select-show-arrow {
+  padding-right: 12px !important;
+}
+
+.root :global .ant-switch-inner {
+  line-height: 25px;
+}

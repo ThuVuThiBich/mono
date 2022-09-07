@@ -1,0 +1,148 @@
+.earning {
+  display: inline-block;
+}
+
+.earning > *:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.earningTitle {
+  color: var(--tint-3);
+  text-align: left;
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.earningValue {
+  color: #fff;
+  text-align: left;
+  font-family: 'Avenir';
+  line-height: 1;
+  white-space: nowrap;
+
+  .value {
+    font-weight: 900;
+    font-size: 32px;
+  }
+  .symbol {
+    font-size: 22px;
+  }
+}
+
+.earningConvert {
+  color: var(--tint-3);
+  text-align: right;
+  line-height: 1;
+  font-size: 18px;
+  white-space: nowrap;
+
+  .value {
+    font-weight: 900;
+  }
+}
+
+.contentWrapper {
+  margin-top: 32px;
+  padding: 24px;
+  position: relative;
+}
+
+.contentHeader {
+  border-bottom: 1px solid var(--tint-2);
+  padding-bottom: 8px;
+}
+
+.contentTitle {
+  color: #fff;
+  font-size: 14px;
+}
+
+.REGISTRATION_ONLY {
+  color: var(--accent-blue);
+}
+.KYC_COMPLETED {
+  color: var(--accent-turqoise);
+}
+.TRADE_OR_MINED {
+  color: var(--orange-main);
+}
+
+.status {
+  > span {
+    line-height: 20px;
+  }
+  > img {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin-right: 8px;
+  }
+}
+
+.pagination {
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: -66px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination :global .ant-pagination {
+  margin: 0;
+}
+
+.hidePagination {
+  display: none;
+}
+
+.hideOptionPagination {
+  > li:not(:last-child) {
+    display: none;
+  }
+  > li:last-child {
+    margin-top: 10px;
+  }
+}
+
+.table {
+  max-width: 100%;
+  font-size: 14px;
+}
+.table :global .ant-table,
+.table :global .ant-spin-container::after,
+.table :global .ant-table-placeholder:hover > td {
+  background: none !important;
+}
+
+.table thead tr th::before,
+.table thead tr th {
+  background: none !important;
+  border: none !important;
+}
+
+.table tr td {
+  background: none !important;
+  border: none !important;
+}
+
+.table :global .ant-table-column-title {
+  z-index: unset;
+}
+
+.table tr:hover > td {
+  color: var(--orange-main);
+}
+
+.table {
+  margin-bottom: 5px;
+}
+
+.table :global .ant-pagination-options {
+  visibility: visible !important;
+}

@@ -1,0 +1,17 @@
+.root {
+  width: 100%;
+  position: relative;
+  padding: 21px 21px 12px 21px;
+}
+
+.listActivity {
+  margin-bottom: 10px;
+}
+
+.listActivity :global .ant-list-item {
+  padding: 3px 0px;
+}
+
+.text_hover:hover {
+  color: var(--orange-main);
+}
