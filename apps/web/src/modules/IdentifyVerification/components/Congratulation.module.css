@@ -1,0 +1,18 @@
+.surface {
+  padding: 23px 21px 25px 24px;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 18px !important;
+}
+
+.description {
+  font-size: 12px;
+}
+
+.icon {
+  width: 120px;
+  height: 120px;
+}

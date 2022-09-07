@@ -1,0 +1,7 @@
+node_modules
+apps/web/node_modules
+apps/docs/node_modules
+packages/config/node_modules
+**/node_modules
+**/build
+**/out

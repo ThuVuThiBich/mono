@@ -1,0 +1,52 @@
+.root {
+  padding: 15px 5px 0 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.header {
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #bfc1c340;
+}
+.iconClose {
+  cursor: pointer;
+}
+
+.actionIcon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.root :global .ant-radio-button-wrapper span {
+  font-size: 10px !important;
+}
+.root :global .ant-radio-group {
+  column-gap: 6px;
+}
+
+.root :global .tradeBoardFilter {
+  background-color: rgb(99 99 99 / 38%);
+  padding: 3px 6px !important;
+  font-weight: 500 !important;
+}
+
+[data-theme='light'] .root :global .tradeBoardFilter {
+  background-color: #fff;
+}
+
+@media (max-width: 992px) {
+  .root {
+    padding-top: 22px;
+  }
+}
+
+@media (max-width: 576px) {
+  .root {
+    height: 450px;
+  }
+}

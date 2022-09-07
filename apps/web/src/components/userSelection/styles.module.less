@@ -1,0 +1,69 @@
+.root {
+  position: sticky;
+  top: calc(var(--nav-bar-height) + 25px);
+  padding: 25px 22.4px;
+  display: grid;
+  grid-row-gap: 15px;
+  align-items: end;
+  justify-items: end;
+  max-width: 350px;
+  margin-left: auto;
+}
+
+.email {
+  margin-bottom: -3px !important;
+  width: 200px;
+}
+
+.avatar {
+  justify-self: center;
+}
+
+.certificateIcon {
+  position: relative;
+  width: 15px;
+  height: 15px;
+}
+
+.icon {
+  font-size: 16px;
+  margin-bottom: -2px;
+}
+
+.mr25 {
+  margin-right: 25px;
+}
+
+.item {
+  cursor: pointer;
+  text-align: right;
+}
+
+.itemHover:hover div * {
+  color: var(--orange-main) !important;
+}
+
+.disabled {
+  cursor: not-allowed;
+  &:hover {
+    div > * {
+      color: var(--tint-3) !important;
+    }
+  }
+}
+
+@media (max-width: 1366px) {
+  .email {
+    width: 190px;
+  }
+}
+@media (max-width: 1242px) {
+  .email {
+    width: 160px;
+  }
+}
+@media (max-width: 1102px) {
+  .email {
+    width: 130px;
+  }
+}

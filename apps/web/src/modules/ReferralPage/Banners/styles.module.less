@@ -1,0 +1,79 @@
+.root {
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.item > *:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.muted {
+  color: var(--tint-3);
+}
+
+.background {
+  max-width: 100%;
+  display: block;
+  border-radius: 25px;
+  margin: auto;
+}
+
+.download {
+  text-align: right;
+}
+
+.downloadText {
+  color: #fff;
+}
+
+.downloadIcon {
+  color: var(--tint-2);
+  font-weight: 900;
+  display: inline-block;
+  margin: auto 8px;
+}
+
+.panel {
+  border-radius: 10px;
+  background: #fff;
+  padding: 16px;
+  white-space: nowrap;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.panel > *:not(:last-child) {
+  margin-right: 6px;
+}
+
+.label {
+  color: var(--dark-background-light);
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.text {
+  display: block;
+  flex-grow: 1;
+  color: var(--dark-background-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.separator {
+  display: inline-block;
+  height: 20px;
+  width: 1px;
+  background: #707070;
+}
+
+.copy {
+  display: inline-block;
+}
+.copy:hover {
+  cursor: pointer;
+}

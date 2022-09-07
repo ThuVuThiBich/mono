@@ -1,0 +1,28 @@
+.root {
+  display: flex;
+  > label:nth-child(2) {
+    margin: 0 8px;
+  }
+
+  > label:nth-child(1) {
+    border-left: 2px solid #5f5f5f40;
+  }
+
+  > label {
+    font-weight: 500;
+    border-radius: 5px !important;
+    border-left-width: 1px;
+    border: 2px solid #5f5f5f40;
+    background: #40454f26;
+    &::before {
+      display: none !important;
+    }
+  }
+
+  :global .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+    background-color: var(--orange-main) !important;
+    border-right-color: var(--orange-main) !important;
+    box-shadow: none !important;
+    color: var(--orange-dark) !important;
+  }
+}

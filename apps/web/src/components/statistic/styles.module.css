@@ -1,0 +1,38 @@
+.root {
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+.priceUp {
+  background-color: rgb(0, 254, 154, 0.25);
+  color: var(--positive) !important;
+  font-weight: bold;
+}
+
+.priceDown {
+  background-color: rgb(255, 0, 106, 0.25);
+  color: var(--negative) !important;
+  font-weight: bold;
+}
+
+.priceStable {
+  background-color: #494b50;
+  color: var(--tint-3) !important;
+  font-weight: bold;
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+.value {
+  max-width: 75px;
+  /* white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden; */
+  margin: 0;
+}
+
+.percent {
+  font-size: 12px;
+}

@@ -1,0 +1,103 @@
+.header {
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 8px;
+    margin-top: -5px;
+  }
+  h1 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.avatar {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.divider {
+  margin: 0 !important;
+  text-align: center;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  color: #ffffff !important;
+  line-height: 20px;
+}
+
+.body {
+  margin-top: 24px;
+  margin-bottom: 70px;
+}
+
+.availableLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    margin-right: 8px;
+    margin-top: -5px;
+  }
+}
+.availableValue {
+  color: var(--tint-3);
+  margin-right: 12px;
+  b {
+    margin-right: 4px;
+    font-weight: 900;
+    font-size: 14px;
+  }
+  small {
+    font-size: 12px;
+  }
+}
+
+.minMaxBox {
+  margin-top: 21px;
+  margin-bottom: 12px;
+  background: rgba(64, 69, 79, 0.25);
+  box-shadow: 0px 3px 6px #00000026;
+  border-radius: 5px;
+  padding: 5px 12px 4px 12px;
+  color: var(--tint-3);
+  > span:nth-child(1) {
+    font-size: 12px;
+    margin-right: 24px;
+  }
+  > span:nth-child(2) {
+    font-weight: 900;
+  }
+  small {
+    font-size: 13px;
+    margin-left: 8px;
+  }
+}
+
+.durationWrap {
+  margin-top: 30px;
+  margin-bottom: 23px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  > div:nth-child(1) {
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.11px;
+    img {
+      margin-right: 8px;
+      margin-top: -5.5px;
+    }
+  }
+}
+
+.btnSubmit {
+  position: absolute !important;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-transform: uppercase;
+}

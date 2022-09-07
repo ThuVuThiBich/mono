@@ -1,0 +1,41 @@
+.surface {
+  background: rgba(34, 36, 42, 0.25);
+  box-shadow: 0px 0px 10px #00000026;
+  border: 1px solid #cccccc1a;
+  border-radius: 10px;
+}
+
+.filledBackgroud {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='light'] .filledBackgroud {
+  background: #fff;
+  box-shadow: none;
+}
+
+.borderLess {
+  border: none;
+}
+
+.border__2x {
+  border: 2px solid #cccccc1a;
+}
+
+.border__1x {
+  border: 1px solid #cccccc1a;
+}
+
+.rounded {
+  border-radius: 10px;
+}
+
+[data-theme='light'] .surface {
+  background: #fff;
+  box-shadow: 0px 0px 10px #0000000d;
+}
+
+[data-theme='light'] .forceDark {
+  background: rgba(34, 36, 42, 0.25) !important;
+  box-shadow: 0px 0px 10px #00000026;
+}

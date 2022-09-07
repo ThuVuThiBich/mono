@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">
+  <g id="Group_9106" data-name="Group 9106" transform="translate(-19.135)">
+    <g id="Group_9107" data-name="Group 9107" transform="translate(24.135)">
+      <g id="wallet-duotone" transform="translate(0 0)">
+        <path id="Path_2699" data-name="Path 2699" d="M17.026,0H2.522A2.522,2.522,0,0,0,0,2.522,1.261,1.261,0,0,0,1.261,3.784H3.153a.631.631,0,0,1,0-1.261H18.287a.631.631,0,0,0,.631-.631A1.892,1.892,0,0,0,17.026,0Z" transform="translate(0)" fill="#ffba00" opacity="0.25"/>
+        <path id="Path_2700" data-name="Path 2700" d="M18.177,1.261H1.261A1.261,1.261,0,0,1,0,0V12.612a2.522,2.522,0,0,0,2.522,2.522H18.177a1.952,1.952,0,0,0,2-1.892V3.153A1.951,1.951,0,0,0,18.177,1.261Z" transform="translate(0 2.522)" fill="#fff" opacity="0.1"/>
+      </g>
+      <path id="Path_2701" data-name="Path 2701" d="M14.332,3.828,10.716.179A.607.607,0,0,0,9.68.607V3.072H.605A.605.605,0,0,0,0,3.677v1.21a.605.605,0,0,0,.605.605H9.678V7.954a.607.607,0,0,0,1.036.427l3.619-3.645A.643.643,0,0,0,14.332,3.828Z" transform="translate(5.809 24) rotate(-90)" fill="#ffba00"/>
+    </g>
+    <rect id="Rectangle_1581" data-name="Rectangle 1581" width="30" height="24" rx="12" transform="translate(19.135)" fill="none"/>
+  </g>
+</svg>

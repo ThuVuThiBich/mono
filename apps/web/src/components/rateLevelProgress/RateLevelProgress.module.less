@@ -1,0 +1,72 @@
+.root {
+  padding: 13px 18px;
+  margin-top: 14px;
+}
+
+.header {
+  margin-bottom: 22px;
+}
+
+.progress {
+  margin-top: 2px;
+  width: 100%;
+  background: var(--dark-background-light) 0% 0% no-repeat padding-box;
+  border: 1px solid #ffffff0d;
+  border-radius: 8px;
+  height: 10px;
+  padding: 0px 5px;
+  display: flex;
+  align-items: center;
+  .bar {
+    background: transparent linear-gradient(90deg, var(--orange-main) 0%, #e2760c 100%) 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    position: relative;
+    height: 2px;
+    .handler {
+      position: absolute;
+      right: -15px;
+      top: -20px;
+      > span {
+        position: absolute;
+        left: 53%;
+        top: -12px;
+        transform: translateX(-50%);
+        width: fit-content;
+        white-space: nowrap;
+      }
+      span {
+        color: var(--orange-main);
+        font-size: 10px;
+        font-weight: 900;
+      }
+    }
+  }
+
+  .bar_0 {
+    .handler {
+      > span {
+        left: 100%;
+      }
+    }
+  }
+  .bar_min_8 {
+    .handler {
+      > span {
+        left: 180%;
+      }
+    }
+  }
+  .bar_max {
+    .handler {
+      > span {
+        left: -100%;
+      }
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 9px;
+}

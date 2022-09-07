@@ -1,0 +1,90 @@
+.root {
+  width: 100%;
+  position: relative;
+  margin: 5px 0;
+  border: none;
+  background: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  flex-grow: 1;
+  height: 100%;
+  position: relative;
+}
+
+/* Remove antd table default styles */
+.table {
+  max-width: 100%;
+  overflow-y: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.table :global .ant-table,
+.table :global .ant-spin-container::after,
+.table :global .ant-table-placeholder:hover > td {
+  background: none !important;
+}
+
+.table thead tr th::before,
+.table thead tr th {
+  background: none !important;
+  border: none !important;
+  color: #9aa3a7;
+}
+
+.table tr td {
+  background: none !important;
+  border: none !important;
+  padding: 0px !important;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.table tr th {
+  padding: 4px 1px !important;
+  font-size: 12px !important;
+}
+
+.table {
+  margin-bottom: 5px;
+}
+
+.table tr > *:nth-child(1) {
+  width: 35%;
+}
+.table tr > *:nth-child(2) {
+  width: 30%;
+}
+.table tr > *:nth-child(3) {
+  width: 35%;
+}
+
+.table .tableLastPrice tr > *:nth-child(3) {
+  text-align: left !important;
+  padding-left: 5px !important;
+}
+
+.rowSell,
+.rowBuy {
+  position: relative;
+}
+
+.rowBuy td:first-child {
+  color: var(--positive);
+}
+
+.rowSell td:first-child {
+  color: var(--negative);
+}
+
+.tableHeader {
+  padding-right: 10px;
+}
+
+.tableHeader tbody {
+  display: none;
+}

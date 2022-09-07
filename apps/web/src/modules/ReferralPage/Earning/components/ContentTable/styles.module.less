@@ -1,0 +1,82 @@
+.contentWrapper {
+  margin-top: 32px;
+  padding: 24px;
+  position: relative;
+}
+
+.contentHeader {
+  border-bottom: 1px solid var(--tint-2);
+  padding-bottom: 8px;
+}
+
+.contentTitle {
+  color: #fff;
+  font-size: 14px;
+}
+
+.contentSymbol {
+  display: inline-block;
+  margin-left: 8px;
+  transform: rotate(-45deg);
+}
+
+.pagination {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.pagination :global .ant-pagination {
+  margin: 0;
+}
+
+.hidePagination {
+  display: none;
+}
+
+.hideOptionPagination {
+  > li:not(:last-child) {
+    display: none;
+  }
+
+  > li:last-child {
+    margin-top: 0;
+  }
+}
+
+.table {
+  max-width: 100%;
+  font-size: 14px;
+}
+.table :global .ant-table,
+.table :global .ant-spin-container::after,
+.table :global .ant-table-placeholder:hover > td {
+  background: none !important;
+}
+
+.table thead tr th::before,
+.table thead tr th {
+  background: none !important;
+  border: none !important;
+}
+
+.table tr td {
+  background: none !important;
+  border: none !important;
+}
+
+.table :global .ant-table-column-title {
+  z-index: unset;
+}
+
+.table tr:hover > td {
+  color: var(--orange-main);
+}
+
+.table {
+  margin-bottom: 5px;
+}

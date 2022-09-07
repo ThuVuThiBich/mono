@@ -1,0 +1,12 @@
+.input,
+.input:focus,
+.input > input {
+  border-color: unset !important;
+  box-shadow: unset !important;
+  border: none !important;
+  height: 100% !important;
+  width: 100% !important;
+  opacity: 1;
+  text-align: right;
+  background-color: transparent !important;
+}

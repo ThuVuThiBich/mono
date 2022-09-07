@@ -1,0 +1,4 @@
+.modal :global .ant-modal-header,
+.modal :global .ant-modal-footer {
+  display: none;
+}

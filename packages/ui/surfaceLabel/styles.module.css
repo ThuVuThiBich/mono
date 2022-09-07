@@ -1,0 +1,62 @@
+.inputContainer {
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  box-shadow: 0px 0px 10px #00000026;
+  border: 2px solid #5f5f5f26;
+  border-radius: 10px;
+  padding-left: 20px;
+  color: #ffffff;
+  /* overflow: hidden; */
+}
+
+.label {
+  text-align: left;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+  opacity: 1;
+  cursor: pointer;
+  width: fit-content;
+  word-break: keep-all;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/* Props style */
+
+.small {
+  height: 40px !important;
+}
+
+.middle {
+  height: 44px !important;
+}
+
+.large {
+  height: 64px !important;
+}
+
+.label__small {
+  font-size: 14px !important;
+  color: #788686;
+}
+.label__middle {
+  font-size: 16px !important;
+}
+.label__large {
+  font-size: 18px !important;
+}
+
+@media (max-width: 768px) {
+  .label__small {
+    font-size: 12px !important;
+  }
+  .label__middle {
+    font-size: 14px !important;
+  }
+  .label__large {
+    font-size: 14px !important;
+  }
+}

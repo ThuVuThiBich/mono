@@ -1,0 +1,21 @@
+.surface {
+  padding: 23px 21px 25px 24px;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.btnCreateAccount {
+  margin-top: 18px;
+}
+
+.btnSubmit {
+  position: absolute !important;
+  right: 20px;
+  bottom: -20px;
+  z-index: 1;
+}
+
+.textDescription {
+  font-size: 12px;
+  line-height: 40px;
+}

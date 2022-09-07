@@ -1,0 +1,40 @@
+.root {
+  width: 100%;
+  padding: 21px 0px 0px 24px;
+  overflow: hidden;
+  height: 248px;
+}
+
+.descriptionWrapper {
+  width: 135px;
+  text-align: left;
+  position: absolute;
+  left: 43px;
+}
+
+.description {
+  color: var(--orange-main);
+  font-size: 14px;
+  /* max-width: 376px; */
+}
+
+.stepper {
+  margin-left: -40px;
+}
+
+.btnGo {
+  width: unset !important;
+  height: unset !important;
+  padding: 5px 22px !important;
+  font-size: 12px !important;
+}
+
+.w100 {
+  width: 100% !important;
+}
+
+@media (max-width: 530px) {
+  .root {
+    overflow: auto;
+  }
+}

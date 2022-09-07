@@ -1,0 +1,75 @@
+.root {
+  position: relative;
+  min-width: 120px;
+  justify-content: space-between !important;
+}
+
+.input,
+.input > div,
+.input > div > span > input {
+  background-color: transparent !important;
+  border-color: unset !important;
+  box-shadow: unset !important;
+  border: none !important;
+  height: 100% !important;
+  text-align: right;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+
+/* Inner */
+/* .root :global .ant-select-selection-item {
+  max-width: 65%;
+  margin-left: 35%;
+} */
+
+/* Arrow */
+.input :global .ant-select-arrow {
+  font-size: 16px;
+  top: 45%;
+  color: #ffffff;
+}
+
+/* Dropdown */
+.dropdown {
+  background: var(--dark-background);
+  border-radius: 10px !important;
+  width: max-content !important;
+}
+
+/* Props style */
+.small :global .ant-select-selection-placeholder,
+.small :global .ant-select-selection-item {
+  font-size: 14px !important;
+  line-height: 38px !important;
+}
+
+.middle :global .ant-select-selection-placeholder,
+.middle :global .ant-select-selection-item {
+  font-size: 16px !important;
+  line-height: 41px !important;
+}
+
+.large :global .ant-select-selection-placeholder,
+.large :global .ant-select-selection-item {
+  font-size: 18px !important;
+  line-height: 58px !important;
+}
+
+.label {
+  position: absolute;
+  top: -12px;
+  left: 12px;
+  font-size: 15px !important;
+  font-weight: 500;
+  color: #8f8888;
+}
+
+@media (max-width: 575px) {
+  .input :global .ant-select-selection-item {
+    max-width: 60% !important;
+    position: absolute !important;
+    right: 10px;
+  }
+}

@@ -1,0 +1,90 @@
+@import 'overrides.less'; // antd library
+@import 'react-grid-layout.less'; // react-grid-layout library
+@import 'react-resizable.less'; // react-resizable library
+@import 'variables.less';
+@import 'utilities.less';
+@import 'lib-overrides.less';
+
+html,
+body {
+  width: 100%;
+}
+
+html {
+  text-size-adjust: 100%;
+}
+
+body {
+  font-size: 14px;
+}
+
+html,
+body,
+#root,
+#__next,
+.app {
+  height: 100%;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  height: 100%;
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+  border-radius: 0px;
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: var(--scroll-thumb);
+}
+
+//
+.scroll::-webkit-scrollbar {
+  width: 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
+  height: 100%;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+  border-radius: 8px;
+  border-radius: 1px solid rgba(255, 255, 255, 0.05);
+  height: 100%;
+  margin: 0 !important;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: var(--scroll-thumb);
+  background-clip: padding-box;
+  border: 4.3px solid transparent;
+}
+
+[data-theme='light'] .scroll::-webkit-scrollbar-thumb {
+  border: 5px solid transparent;
+}
+
+.scroll {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #000 inset !important;
+}
+/*Change text in autofill textbox*/
+input:-webkit-autofill {
+  -webkit-text-fill-color: #fff !important;
+}

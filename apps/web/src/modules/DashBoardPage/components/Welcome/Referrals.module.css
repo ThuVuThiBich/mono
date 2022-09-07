@@ -1,0 +1,9 @@
+.root {
+  width: 100%;
+  position: relative;
+  padding: 21px 21px 8px 21px;
+}
+
+.spacing {
+  margin: 22px 0px;
+}

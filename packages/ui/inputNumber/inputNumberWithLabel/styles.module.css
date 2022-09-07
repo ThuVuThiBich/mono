@@ -1,0 +1,23 @@
+.inputNumber {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  box-shadow: 0px 0px 10px #00000026;
+  border: 2px solid #5f5f5f26;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 14px;
+  color: #ffffff;
+  height: 44px !important;
+}
+.inputNumber label {
+  font-size: 16px;
+}
+.inputNumber input {
+  margin-left: auto;
+  background: transparent;
+  outline: none;
+  border: none;
+  text-align: right;
+  padding-right: 11px;
+}
