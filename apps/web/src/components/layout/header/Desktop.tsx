@@ -17,47 +17,42 @@ const getNavList = (user: any) => {
       .filter((route) => (user ? true : !route.auth))
       .map((route) => {
         if (route.path) {
-          return {
-            key: route.path,
-            label: (
+          return (
+            <Menu.Item key={route.path}>
               <Link href={route.path}>
-                <a id={route.path}>{route.title}</a>
+                <a>{route.title}</a>
               </Link>
-            ),
-          };
+            </Menu.Item>
+          );
         }
         const subMenu = (
-          <Menu
-            items={route?.subs?.map((sub) => ({
-              key: sub.path,
-              label: (
+          <Menu>
+            {route?.subs?.map((sub) => (
+              <Menu.Item key={sub.path}>
                 <Link href={sub.path}>
-                  <a id={sub.path}>{sub.title}</a>
+                  <a>{sub.title}</a>
                 </Link>
-              ),
-            }))}
-          />
+              </Menu.Item>
+            ))}
+          </Menu>
         );
-        return {
-          key: route.title,
-          label: (
+        return (
+          <Menu.Item key={route.title}>
             <Dropdown overlay={subMenu}>
               <a className="cursor">
                 <span className="default">{route.title}</span>
                 <DownOutlined />
               </a>
             </Dropdown>
-          ),
-        };
+          </Menu.Item>
+        );
       })
   );
 };
-
 const Desktop: FC = () => {
   const router = useRouter();
   const currentPage = router?.pathname.includes('/exchange') ? '/exchange/BTC_USDT' : router.pathname;
   const { user } = useUser();
-
   return (
     <Header className={styles.header}>
       <div className={styles.navbar}>
@@ -72,13 +67,9 @@ const Desktop: FC = () => {
             </Space>
           </a>
         </Link>
-        <Menu
-          selectedKeys={[currentPage]}
-          activeKey={currentPage}
-          mode="horizontal"
-          className={styles.menu}
-          items={getNavList(user)}
-        />
+        <Menu selectedKeys={[currentPage]} activeKey={currentPage} mode="horizontal" className={styles.menu}>
+          {getNavList(user)}
+        </Menu>
       </div>
       <Space align="center">
         {user ? (

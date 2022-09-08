@@ -1,8 +1,8 @@
-import { forwardRef, useState } from 'react';
-import { Input as AntdInput, InputProps, InputRef } from 'antd';
-import styles from './styles.module.css';
-import clsx from 'clsx';
-import { SurfaceLabel } from '@cross/ui';
+import { forwardRef, useState } from "react";
+import { Input as AntdInput, InputProps } from "antd";
+import styles from "./styles.module.css";
+import clsx from "clsx";
+import { SurfaceLabel } from "@cross/ui";
 
 const { Password: AntPassword } = AntdInput;
 export type ModifiedInputProps = Partial<InputProps> & {
@@ -13,42 +13,47 @@ export type ModifiedInputProps = Partial<InputProps> & {
   surfaceClassName?: string;
 };
 
-export const InputWithLabel = forwardRef<InputRef, ModifiedInputProps>(function Input(
-  {
-    className,
-    label,
-    id,
-    size = "middle",
-    searchForm,
-    surfaceClassName,
-    ...props
-  },
-  ref
-) {
-  const inputWithSize = styles[size];
-  const isSearchForm = searchForm ? "searchForm" : "";
-  const [isFocused, setFocused] = useState(false);
+export const InputWithLabel = forwardRef<any, ModifiedInputProps>(
+  function Input(
+    {
+      className,
+      label,
+      id,
+      size = "middle",
+      searchForm,
+      surfaceClassName,
+      ...props
+    },
+    ref
+  ) {
+    const inputWithSize = styles[size];
+    const isSearchForm = searchForm ? "searchForm" : "";
+    const [isFocused, setFocused] = useState(false);
 
-  return (
-    <SurfaceLabel
-      size={size}
-      id={id}
-      label={label}
-      className={clsx(isFocused ? styles.surfaceFocused : "", surfaceClassName)}
-    >
-      <AntdInput
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
-        ref={ref}
+    return (
+      <SurfaceLabel
+        size={size}
         id={id}
-        className={clsx(styles.input, inputWithSize, isSearchForm, className)}
-        {...props}
-      />
-    </SurfaceLabel>
-  );
-});
+        label={label}
+        className={clsx(
+          isFocused ? styles.surfaceFocused : "",
+          surfaceClassName
+        )}
+      >
+        <AntdInput
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          ref={ref}
+          id={id}
+          className={clsx(styles.input, inputWithSize, isSearchForm, className)}
+          {...props}
+        />
+      </SurfaceLabel>
+    );
+  }
+);
 
-export const PasswordWithLabel = forwardRef<InputRef, ModifiedInputProps>(
+export const PasswordWithLabel = forwardRef<any, ModifiedInputProps>(
   // function Input({ label, id, className, size = "middle", ...props }, ref) {
   function Input({ label, id, size = "middle", ...props }, ref) {
     const inputWithSize = styles[`input__${size}`];
