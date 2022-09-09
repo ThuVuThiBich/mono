@@ -18,7 +18,7 @@ const EmailVerificationPage: FC = () => {
   const [error, setError] = useState<boolean>(false);
   const { email, token, password, confirmPassword } = useAppSelector(getRegister);
   const { mutateAsync: mutateRegister } = useMutation(register, {
-    onError(error: TError, variables, context) {
+    onError(error: TError) {
       message.error(error.msg_code as any);
       setError(true);
     },

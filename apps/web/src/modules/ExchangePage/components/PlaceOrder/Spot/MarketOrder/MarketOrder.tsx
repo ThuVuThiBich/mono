@@ -12,6 +12,7 @@ import { useTypeSafeTranslation } from 'hooks';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import { useUser } from 'api/account';
+import { routes } from 'types/routes';
 
 interface MarketOrderProps {
   data: Data;
@@ -44,6 +45,7 @@ export const MarketOrder: FC<MarketOrderProps> = ({
   const [slider, setSlider] = useState<number>(0);
   // const { currentPair } = useAppSelector((state) => state.system.exchange);
   const currentPair = useRouter().query.id as string;
+  const router = useRouter();
 
   const listPairValue = useAppSelector(getListPairValue);
   const pairData = listPairValue.find((listPairValue_item: any) => listPairValue_item.pair === currentPair);
@@ -100,7 +102,7 @@ export const MarketOrder: FC<MarketOrderProps> = ({
   }, [orderBookSelect]);
 
   const handleLogin = () => {
-    window.location.href = '/api/auth/login?returnTo=/exchange';
+    router.push(`${routes.login}?redirect=${router.asPath}`);
   };
 
   return (

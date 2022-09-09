@@ -104,7 +104,6 @@ const AccountStatusStepper: FC = () => {
   const isFinishAll = useMemo(() => {
     return data?.use_mfa && data.kyc_status === 2 && onBoardInfo?.depositCompletedFlg === 1;
   }, [data, onBoardInfo]);
-  console.log({ isFinishAll });
 
   if (isFinishAll) return null;
   return (

@@ -12,6 +12,8 @@ import { fixed } from 'utils/number';
 import BigNumber from 'bignumber.js';
 import { getOrderBookSelect } from 'store/ducks/exchange/slice';
 import { useUser } from 'api/account';
+import { useRouter } from 'next/router';
+import { routes } from 'types/routes';
 
 BigNumber.config({ EXPONENTIAL_AT: 1e9 });
 
@@ -54,6 +56,7 @@ export const StopOrder: FC<StopOrderProps> = ({
   const [visible, setVisible] = useState<boolean>(false);
   const [slider, setSlider] = useState<number>(0);
   const maxAmount = filterSide === 'buy' ? Number(available) / (data?.limit || 1) : Number(available);
+  const router = useRouter();
 
   const orderData = {
     coin1: coin,
@@ -171,7 +174,7 @@ export const StopOrder: FC<StopOrderProps> = ({
   };
 
   const handleLogin = () => {
-    window.location.href = '/api/auth/login?returnTo=/exchange';
+    router.push(`${routes.login}?redirect=${router.asPath}`);
   };
 
   return (

@@ -9,14 +9,7 @@ import {
   IRightsTokenInfo,
   IUser,
 } from './types';
-import {
-  getSkipIdInfo,
-  getRightsTokenInfo,
-  getUserWithdrawnLimit,
-  getCreditLimit,
-  getListFavorite,
-  getMe,
-} from './request';
+import { getRightsTokenInfo, getUserWithdrawnLimit, getCreditLimit, getListFavorite, getMe } from './request';
 import { USER_COOKIES } from 'utils/constant';
 import { getCookies, parseJson, removeCookies, setCookies } from '@cross/cookies';
 
@@ -31,8 +24,8 @@ export const useCurrencyGroupItem = (options?: UseQueryOptions<CurrencyGroupItem
   );
 };
 
-export const useGetUserInfo = (options?: UseQueryOptions<TGetUserInfoResponse>) => {
-  return useQuery<TGetUserInfoResponse>('skipid/user/info', getSkipIdInfo, options);
+export const useGetUserInfo = (options?: UseQueryOptions<any>) => {
+  return useQuery<any>('/user/info', getMe, options);
 };
 
 export const useWithdrawLimit = (options?: UseQueryOptions<TUserWithdrawnLimit>) => {
