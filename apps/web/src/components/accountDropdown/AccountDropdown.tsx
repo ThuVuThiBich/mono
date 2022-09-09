@@ -1,7 +1,6 @@
 import { removeCookies } from '@cross/cookies';
 import { Avatar, Dropdown } from '@cross/ui';
-import { Button as ButtonAntd, Divider, Drawer, Menu, Grid } from 'antd';
-import { useUser } from 'api/account';
+import { Button as ButtonAntd, Divider, Drawer, Grid, Menu } from 'antd';
 import { logout } from 'api/auth';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -28,9 +27,10 @@ const items = accountRoutes.map((route) => (
 
 const UserDrawer: FC<IDrawerMenu> = ({ visible, onClose }) => {
   const { pathname } = useRouter();
-  const { mutateAsync: mutateLogout } = useMutation({
+  const queryClient = useQueryClient();
+  const { mutateAsync: mutateLogout } = useMutation(logout, {
     onSuccess() {
-      logout();
+      queryClient.setQueryData('me', undefined);
       removeCookies(USER_COOKIES.userAccessToken);
     },
   });
@@ -62,11 +62,13 @@ const AccountDropdown: FC = () => {
   const toggleOpenDrawer = () => {
     setOpenDrawer(!openDrawer);
   };
-  const { refetch } = useUser();
-  const handleLogout = async () => {
-    removeCookies(USER_COOKIES.userAccessToken);
-    await refetch();
-  };
+  const queryClient = useQueryClient();
+  const { mutateAsync: mutateLogout } = useMutation(logout, {
+    onSuccess() {
+      queryClient.setQueryData('me', undefined);
+      removeCookies(USER_COOKIES.userAccessToken);
+    },
+  });
   const accountMenu = (
     <Menu>
       {accountRoutes.map((account) => (
@@ -74,7 +76,12 @@ const AccountDropdown: FC = () => {
           <Link href={account.path}>{account.title}</Link>
         </Menu.Item>
       ))}
-      <Menu.Item key="loutout" onClick={handleLogout}>
+      <Menu.Item
+        key="logout"
+        onClick={() => {
+          mutateLogout();
+        }}
+      >
         Logout
       </Menu.Item>
     </Menu>

@@ -131,9 +131,7 @@ const ExchangeWebsocketProvider: FC<Props> = ({
     <TickerWebsocketContext.Provider value={lastMessageFilter.ticker}>
       <TradeWebsocketContext.Provider value={lastMessageFilter.trades}>
         <DepthWebsocketContext.Provider value={lastMessageFilter.depth}>
-          <WalletWebsocketContext.Provider value={lastMessageFilter.wallet}>
-            {children}
-          </WalletWebsocketContext.Provider>
+          <WalletWebsocketContext.Provider value={lastMessageFilter.wallet}>{children}</WalletWebsocketContext.Provider>
         </DepthWebsocketContext.Provider>
       </TradeWebsocketContext.Provider>
     </TickerWebsocketContext.Provider>

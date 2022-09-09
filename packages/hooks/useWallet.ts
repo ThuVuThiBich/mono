@@ -11,14 +11,7 @@ export const useWallet = () => {
   const lastMessage = useWalletData();
 
   useEffect(() => {
-    if (!lastMessage) {
-      setAuthWallet({
-        free: {},
-        freezed: {},
-        borrow: {},
-      });
-      return;
-    }
+    if (!lastMessage) return;
 
     setAuthWallet(lastMessage.data);
   }, [lastMessage]);

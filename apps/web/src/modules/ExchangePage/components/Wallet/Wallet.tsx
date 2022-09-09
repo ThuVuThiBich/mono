@@ -8,10 +8,11 @@ import { useAppDispatch } from 'hooks';
 import { useAppSelector } from 'hooks/reduxHook';
 import DepositModal from 'modules/WalletPage/components/Deposit/DepositModal';
 import WithdrawModal from 'modules/WalletPage/components/Withdraw/WithdrawModal';
-import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import { FC, memo, useMemo, useState } from 'react';
 import { getCurrentPairValue } from 'store/ducks/exchange/slice';
 import { setAuthModal, setExchange } from 'store/ducks/system/slice';
+import { routes } from 'types/routes';
 import { Undefined } from 'types/util-types';
 import styles from './Wallet.module.less';
 import WalletAmountCoin from './WalletAmountCoin';
@@ -20,11 +21,10 @@ interface WalletProps {}
 
 const Wallet: FC<WalletProps> = () => {
   const dispatch = useAppDispatch();
-  const { t } = useTranslation();
-
+  const router = useRouter();
   const { user } = useUser();
   const { data: userInfo } = useGetUserInfo({ enabled: !!user });
-  const [open, setOpen] = useState<Undefined<'withdraw' | 'deposit' | 'repay' | 'borrow'>>(undefined);
+  const [open, setOpen] = useState<Undefined<'withdraw' | 'deposit'>>(undefined);
 
   const { walletFree: availableWallet } = useWallet();
 
@@ -34,8 +34,8 @@ const Wallet: FC<WalletProps> = () => {
 
   const currentPairValue = useAppSelector(getCurrentPairValue);
 
-  const handleOpen = (key: 'withdraw' | 'deposit' | 'repay' | 'borrow') => {
-    if (!user) return dispatch(setAuthModal('auth'));
+  const handleOpen = (key: 'withdraw' | 'deposit') => {
+    if (!user) return router.push(`${routes.login}?redirect=${router.asPath}`);
     if (!userInfo?.use_mfa && key === 'withdraw') {
       return dispatch(setAuthModal('2fa'));
     }
@@ -82,27 +82,25 @@ const Wallet: FC<WalletProps> = () => {
           <WalletAmountCoin
             id={`wallet-${pair.coin}`}
             coin={pair.coin}
-            value={availableWallet[pair.coin]?.number || '0'}
-            assessment={availableWallet[pair.coin]?.assessment || '0'}
+            value={(user && availableWallet[pair.coin]?.number) || '0'}
+            assessment={(user && availableWallet[pair.coin]?.assessment) || '0'}
             decimalSeparator={pairData[pair.coin]}
           />
 
           <WalletAmountCoin
             id={`wallet-${pair.money}`}
             coin={pair.money}
-            value={availableWallet[pair.money]?.number || '0'}
-            assessment={availableWallet[pair.money]?.assessment || '0'}
+            value={(user && availableWallet[pair.money]?.number) || '0'}
+            assessment={(user && availableWallet[pair.money]?.assessment) || '0'}
             decimalSeparator={pairData[pair.money]}
           />
         </div>
 
         <Space className={styles.bottomContainer}>
           <div onClick={() => handleOpen('deposit')} className={styles.iconWrap}>
-            {/* <FontAwesomeIcon icon={faUpload} color="#788686" className={styles.icon} /> */}
             <img src="/images/svgs/deposit-duotone.svg" alt="deposit" />
           </div>
           <div onClick={() => handleOpen('withdraw')} className={styles.iconWrap}>
-            {/* <FontAwesomeIcon icon={faDownload} color="#788686" className={styles.icon} /> */}
             <img src="/images/svgs/withdraw-duotone.svg" alt="withdraw" />
           </div>
         </Space>

@@ -4,5 +4,4 @@ export * from './useDepth';
 export * from './useTicker';
 export * from './useConvertData';
 export * from './useAuthOrders';
-export * from './useAuthWallet';
 export * from './useWallet';
