@@ -21,18 +21,19 @@ const PairSelectorPanel: React.FC<PairSelectorPanelProps> = ({ filterType, fiat,
 
   const resolutionOverlay = useMemo(() => {
     return (
-      <Menu
-        selectedKeys={fiat}
-        className={styles.menuPopup}
-        onClick={(e) => {
-          setFilterType('fiat');
-          setFiat(e.key);
-        }}
-        items={fiatList.map((fiatItem: any) => ({
-          key: fiatItem,
-          label: fiatItem,
-        }))}
-      />
+      <Menu selectedKeys={fiat} className={styles.menuPopup}>
+        {fiatList.map((fiatItem: any) => (
+          <Menu.Item
+            key={fiatItem}
+            onClick={() => {
+              setFilterType('fiat');
+              setFiat(fiatItem);
+            }}
+          >
+            {fiatItem}
+          </Menu.Item>
+        ))}
+      </Menu>
     );
   }, [fiat, fiatList, setFilterType, setFiat]);
 

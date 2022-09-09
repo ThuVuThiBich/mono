@@ -22,8 +22,15 @@ export const LanguageSelect: FC<LanguageSelectProps> = ({ desktop = true }) => {
     key: lang.value,
   }));
 
-  const languageMenu = <Menu items={items} onClick={onClick} />;
-
+  const languageMenu = (
+    <Menu>
+      {LANGUAGE.map((lang) => (
+        <Menu.Item key={lang.value} onClick={() => {}}>
+          {desktop ? lang.value : lang.label}
+        </Menu.Item>
+      ))}
+    </Menu>
+  );
   return (
     <Dropdown overlay={languageMenu}>
       <Space size={8} align="baseline">
