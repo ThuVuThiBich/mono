@@ -17,14 +17,14 @@ interface IDrawerMenu {
   onClose: () => void;
 }
 
-const items = accountRoutes.map((route) => ({
-  label: (
+const items = accountRoutes.map((route) => (
+  <Menu.Item key={route.path}>
     <Link key={route.path} passHref href={route.path}>
       <div className={styles.uppercase}>{route.title}</div>
     </Link>
-  ),
-  key: route.path,
-}));
+  </Menu.Item>
+));
+console.log('item', items);
 
 const UserDrawer: FC<IDrawerMenu> = ({ visible, onClose }) => {
   const { pathname } = useRouter();
@@ -35,33 +35,22 @@ const UserDrawer: FC<IDrawerMenu> = ({ visible, onClose }) => {
   });
   return (
     <Drawer className={styles.drawer} width={360} onClose={onClose} visible={visible}>
-      <Menu
-        activeKey={pathname === '/' ? undefined : pathname}
-        mode="inline"
-        className={styles.menu}
-        onClick={onClose}
-        items={items}
-      />
+      <Menu activeKey={pathname === '/' ? undefined : pathname} mode="inline" className={styles.menu} onClick={onClose}>
+        {items}
+      </Menu>
 
       <Divider key="divider" />
-      <Menu
-        mode="inline"
-        className={styles.menu}
-        items={[
-          {
-            label: (
-              <div
-                onClick={() => {
-                  mutateLogout();
-                }}
-              >
-                Logout
-              </div>
-            ),
-            key: 'logout',
-          },
-        ]}
-      />
+      <Menu mode="inline" className={styles.menu}>
+        <Menu.Item key="logout">
+          <div
+            onClick={() => {
+              mutateLogout();
+            }}
+          >
+            Logout
+          </div>
+        </Menu.Item>
+      </Menu>
     </Drawer>
   );
 };
@@ -77,8 +66,18 @@ const AccountDropdown: FC = () => {
     removeCookies(USER_COOKIES.userAccessToken);
     await refetch();
   };
-  const accountMenu = <Menu items={[...items, { label: <div onClick={handleLogout}>Logout</div>, key: 'logout' }]} />;
-
+  const accountMenu = (
+    <Menu>
+      {accountRoutes.map((account) => (
+        <Menu.Item key={account.title}>
+          <Link href={account.path}>{account.title}</Link>
+        </Menu.Item>
+      ))}
+      <Menu.Item key="loutout" onClick={handleLogout}>
+        Logout
+      </Menu.Item>
+    </Menu>
+  );
   return screen.md ? (
     <Dropdown
       className={styles.accountDropdown}
