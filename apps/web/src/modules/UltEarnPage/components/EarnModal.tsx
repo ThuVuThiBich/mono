@@ -30,13 +30,9 @@ const EarnModal: FC = () => {
   const { data: walletData, refetch } = useWalletQuery();
   const { data: stakeDatas, getStakeInfoByTime } = useEarnInfo();
   const [duration, setDuration] = useState(30);
-  console.log('stake info', initStakeInfo);
-
   const { data: marketData, refetch: refetchMarketData } = useMarketGroupQuery();
 
   useEffect(() => {
-    console.log('uf stake info', initStakeInfo);
-
     if (!initStakeInfo) return;
     setDuration(initStakeInfo?.time || 30);
     refetch();

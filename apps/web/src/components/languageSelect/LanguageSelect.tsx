@@ -13,15 +13,6 @@ export const LanguageSelect: FC<LanguageSelectProps> = ({ desktop = true }) => {
   const router = useRouter();
   const { locale } = router;
 
-  const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
-  };
-
-  const items = LANGUAGE.map((lang) => ({
-    label: desktop ? lang.value : lang.label,
-    key: lang.value,
-  }));
-
   const languageMenu = (
     <Menu>
       {LANGUAGE.map((lang) => (

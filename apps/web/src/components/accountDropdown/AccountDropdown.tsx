@@ -25,7 +25,6 @@ const items = accountRoutes.map((route) => (
     </Link>
   </Menu.Item>
 ));
-console.log('item', items);
 
 const UserDrawer: FC<IDrawerMenu> = ({ visible, onClose }) => {
   const { pathname } = useRouter();

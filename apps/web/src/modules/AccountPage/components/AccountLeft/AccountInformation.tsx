@@ -108,7 +108,7 @@ const AccountInformation: FC = () => {
 
       const tempCurrency = currencyList?.find((element: any) => element.coinType === values.localCurrency);
       dispatch(setCurrentCurrency(tempCurrency));
-      message.success(t('sub_account.update.update_success'));
+      message.success('update successfully');
       setBtnEdit(false);
     } catch (err: any) {
       message.error(err.message);
@@ -250,7 +250,7 @@ const AccountInformation: FC = () => {
                 {currencyList?.map((entry: any, index) => {
                   return (
                     <Option key={index} value={entry.coinType}>
-                      {t(`account_management.setting_currency_${entry.coinType}` as any)}
+                      {entry.coinType}
                     </Option>
                   );
                 })}
