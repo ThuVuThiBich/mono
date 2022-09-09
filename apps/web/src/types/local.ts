@@ -30,5 +30,5 @@ export interface IUserAuth {
   rechargeType: string;
   user: IUserInfo;
   emailState: string;
-  googleAuth: string;
+  'google-auth': string;
 }

@@ -2,7 +2,7 @@ import { Button } from '@cross/ui';
 import { useAppSelector } from 'hooks';
 import QRCode from 'qrcode.react';
 import { FC } from 'react';
-import { getUserEmail } from 'store/ducks/account/slice';
+import { getUserAuth, getUserEmail } from 'store/ducks/account/slice';
 import styles from './styles.module.less';
 
 interface AddKeyProps {
@@ -13,6 +13,8 @@ interface AddKeyProps {
 
 const AddKey: FC<AddKeyProps> = ({ secretKey, secretUrl, onSuccess }) => {
   const userEmail = useAppSelector(getUserEmail);
+  const userAuth = useAppSelector(getUserAuth);
+
   return (
     <div className={styles.root}>
       <p className="text-14 center">

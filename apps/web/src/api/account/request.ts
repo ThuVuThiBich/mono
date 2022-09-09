@@ -92,7 +92,7 @@ export const unsubscribeEmail = async (params: {
 };
 
 export const getMe = async () => {
-  // const { data } = await request.post(`/consumer/getMe`);
-  const token = getCookies(USER_COOKIES.userAccessToken);
-  return token ? Promise.resolve(!!token) : Promise.resolve(false);
+  const { data } = await request.post(`/user/info`);
+  // const token = getCookies(USER_COOKIES.userAccessToken);
+  return data;
 };

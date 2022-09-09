@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from 'hooks';
 import { getPages, setPages } from 'store/ducks/history/slice';
 import { getTradeHistoryColumn } from 'components/orderTable';
 import { Button } from '@cross/ui';
+import { useUser } from 'api/account';
 interface TradeHistoryProps {
   precisionsConfigs: any;
 }
@@ -14,8 +15,7 @@ interface TradeHistoryProps {
 const TradeHistory: FC<TradeHistoryProps> = ({ precisionsConfigs }) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
-  // const { user } = useUser();
-  const user = true;
+  const { user } = useUser();
 
   const pages = useAppSelector(getPages);
 

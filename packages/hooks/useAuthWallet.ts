@@ -10,6 +10,7 @@ export const useAuthWallet = (
   currentSubAccount: string,
   getAuthToken: () => Promise<any>
 ) => {
+
   const [authWallet, setAuthWallet] = useState<TWallet>({
     free: {},
     freezed: {},

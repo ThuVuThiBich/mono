@@ -1,5 +1,5 @@
 import { request } from 'api/axios';
-import { TGGCodeRequest, TQRRequest } from './types';
+import { TDisableGGCodeRequest, TGGCodeRequest, TQRRequest } from './types';
 
 export const getSecretKey = async (): Promise<any> => {
   const { data } = await request.post('/consumer/secretKey/googleAuth');
@@ -21,7 +21,7 @@ export const enter = async (params: TGGCodeRequest): Promise<any> => {
   return data;
 };
 
-export const disable = async (): Promise<any> => {
-  const { data } = await request.post('/consumer/enable/googleAuth');
+export const disable = async (params: TDisableGGCodeRequest): Promise<any> => {
+  const { data } = await request.post('/consumer/close/googleUuth', params);
   return data;
 };

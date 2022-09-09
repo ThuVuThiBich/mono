@@ -3,5 +3,8 @@ export interface TQRRequest {
 }
 
 export interface TGGCodeRequest {
-  googleCode: any;
+  googleCode: string;
+}
+export interface TDisableGGCodeRequest {
+  code: string;
 }

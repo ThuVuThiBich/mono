@@ -41,63 +41,54 @@ export const OrderPlacePopup: FC<OrderPlacePopupProps> = ({
   };
 
   return (
-    <Modal
-      visible={visible}
-      className={styles.root}
-      title={t('exchange.review_your_stop_buy_order')}
-      onCancel={onCancel}
-      centered
-    >
+    <Modal visible={visible} className={styles.root} onCancel={onCancel} centered>
       <div className={styles.header}>
-        {t('exchange.review_your')}{' '}
+        REVIEW YOUR
         <span className={styles.green}>
           {side === 'buy' ? (
-            <span className={styles.green}>{t('exchange.stop_buy')} </span>
+            <span className={styles.green}> STOP BUY </span>
           ) : (
-            <span className={styles.red}>{t('exchange.stop_sell')} </span>
+            <span className={styles.red}> STOP SELL </span>
           )}{' '}
         </span>{' '}
-        {t('exchange.order')}
+        ORDER
       </div>
       <div className={styles.inner}>
         <div className={styles.title}>
-          {t('exchange.if_the_last_price_of')} {coin}
+          If the last price of {coin}
           {side === 'buy' ? (
             <>
-              <span className={styles.green}> {t('exchange.increases')} </span> {t('exchange.above')}:{' '}
+              <span className={styles.green}> increases </span> above:{' '}
             </>
           ) : (
             <>
-              <span className={styles.red}> {t('exchange.decreases')} </span> {t('exchange.below')}:{' '}
+              <span className={styles.red}> decreases </span> below:{' '}
             </>
           )}
         </div>
 
         <div className={styles.value}>
-          {nDecimalFormat('' + stop, moneyCoinDecimalAmount)} {moneyCoin}{' '}
-          <span className={styles.gray}>[{t('exchange.stop')}]</span>
+          {nDecimalFormat('' + stop, moneyCoinDecimalAmount)} {moneyCoin} <span className={styles.gray}>[STOP]</span>
         </div>
-        <div className={styles.title}>{t('exchange.an_order_will_be_placed')}</div>
+        <div className={styles.title}>an order will be placed:</div>
         <div className={styles.value}>
           <span>
-            {side === 'buy' ? (
-              <span className={styles.green}> {t(' buy_uppercase')} </span>
-            ) : (
-              <span className={styles.red}> {t(' sell_uppercase')} </span>
-            )}
+            {side === 'buy' ? <span className={styles.green}> BUY </span> : <span className={styles.red}> SELL </span>}
             {fixed((amount || 0).toString(), coinDecimalAmount)} {coin}
           </span>
-          <span className={clsx(styles.gray, 'uppercase')}>[{t('exchange.amount')}]</span>
+          <span className={clsx(styles.gray, 'uppercase')}>[AMOUNT]</span>
         </div>
-        <div className={styles.title}>{t('exchange.at_a_price_of')}</div>
+        <div className={styles.title}>at a price of:</div>
         <div className={styles.value}>
           {nDecimalFormat('' + limit, moneyCoinDecimalAmount)} {moneyCoin}{' '}
-          <span className={clsx(styles.gray, 'uppercase')}>[{t(' limit_uppercase')}]</span>
+          <span className={clsx(styles.gray, 'uppercase')}>[LIMIT]</span>
         </div>
       </div>
-      <Button type={side} className={clsx(styles.confirmBtn, 'uppercase')} onClick={onFinish}>
-        {t('common.confirm')}
-      </Button>
+      <div className="f-center">
+        <Button type={side} className={clsx(styles.confirmBtn, 'uppercase')} onClick={onFinish}>
+          Confirm
+        </Button>
+      </div>
     </Modal>
   );
 };

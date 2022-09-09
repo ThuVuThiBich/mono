@@ -1,20 +1,19 @@
-import { Button, Steps } from '@cross/ui';
+import { LeftOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import { Steps } from '@cross/ui';
+import { message, Space } from 'antd';
+import { enable, getQR, getSecretKey } from 'api/gg_auth';
 import { useAppDispatch } from 'hooks';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import { FC, useEffect, useState } from 'react';
+import { useMutation } from 'react-query';
 import { setAuthModal } from 'store/ducks/system/slice';
+import { routes } from 'types/routes';
 import AddKey from './components/AddKey';
 import DownloadApp from './components/DownloadApp';
 import Enable from './components/Enable';
 import SaveKey from './components/SaveKey';
 import styles from './styles.module.less';
-import { LeftOutlined, QuestionCircleOutlined } from '@ant-design/icons';
-import { Space, message } from 'antd';
-import { useMutation } from 'react-query';
-import { TError } from 'api/types';
-import { enable, getQR, getSecretKey } from 'api/gg_auth';
-import { useRouter } from 'next/router';
-import { routes } from 'types/routes';
 
 const { Step } = Steps;
 

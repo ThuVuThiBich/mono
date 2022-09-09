@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { fixed } from 'utils/number';
 import BigNumber from 'bignumber.js';
 import { getOrderBookSelect } from 'store/ducks/exchange/slice';
+import { useUser } from 'api/account';
 
 BigNumber.config({ EXPONENTIAL_AT: 1e9 });
 
@@ -47,9 +48,8 @@ export const StopOrder: FC<StopOrderProps> = ({
   moneyCoinDecimalAmount,
 }: StopOrderProps) => {
   const { t } = useTranslation();
-  const user = true;
 
-  // const { user } = useUser();
+  const { user } = useUser();
   const orderBookSelect = useAppSelector(getOrderBookSelect);
   const [visible, setVisible] = useState<boolean>(false);
   const [slider, setSlider] = useState<number>(0);

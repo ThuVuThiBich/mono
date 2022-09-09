@@ -10,6 +10,8 @@ import clsx from 'clsx';
 import { useCountdown } from 'hooks';
 import { useMutation, useQueryClient } from 'react-query';
 import SuccessModal from './SuccessModal';
+import { getUserEmail } from 'store/ducks/account/slice';
+import { useUser } from 'api/account';
 
 interface MFAModalProps {
   payload: ISendWithdrawEmailParams;
@@ -30,8 +32,7 @@ const MFAModal: FC<MFAModalProps> = ({ payload, onClose, onFinish }) => {
   const [form] = Form.useForm();
   const [openSuccessModal, setOpenSuccessModal] = useState(false);
   const queryClient = useQueryClient();
-  // const { user } = useUser();
-  const user = true;
+  const { user } = useUser();
 
 
   const [isClicked, setIsClicked] = useState(false);
@@ -134,7 +135,7 @@ const MFAModal: FC<MFAModalProps> = ({ payload, onClose, onFinish }) => {
                       [styles.mt]: getFieldError('email_code')?.length > 0,
                     })}
                   >
-                    Enter 6-digit code sent to {hideEmail(user?.email)}
+                    Enter 6-digit code sent to {hideEmail(getUserEmail)}
                   </i>
                 </>
               );

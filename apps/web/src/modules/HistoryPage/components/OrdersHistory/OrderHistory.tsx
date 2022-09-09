@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from 'hooks';
 import { getPages, setPages } from 'store/ducks/history/slice';
 import { getOrderHistoryColumn } from 'components/orderTable';
 import { Button } from '@cross/ui';
+import { useUser } from 'api/account';
 
 interface TOrderHistory {
   precisionsConfigs: any;
@@ -16,8 +17,7 @@ const OrderHistory: FC<TOrderHistory> = ({ precisionsConfigs }) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const pages = useAppSelector(getPages);
-  // const { user } = useUser();
-  const user = true;
+  const { user } = useUser();
 
   const { data, isFetching } = useOrderHistory(pages);
 
