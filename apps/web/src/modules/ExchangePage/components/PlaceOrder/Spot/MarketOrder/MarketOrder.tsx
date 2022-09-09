@@ -11,6 +11,7 @@ import { getListPairValue, getOrderBookSelect } from 'store/ducks/exchange/slice
 import { useTypeSafeTranslation } from 'hooks';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
+import { useUser } from 'api/account';
 
 interface MarketOrderProps {
   data: Data;
@@ -37,9 +38,8 @@ export const MarketOrder: FC<MarketOrderProps> = ({
   coinDecimalAmount,
 }: MarketOrderProps) => {
   const { t } = useTypeSafeTranslation();
-  const user = true;
 
-  // const { user } = useUser();
+  const { user } = useUser();
   const orderBookSelect = useAppSelector(getOrderBookSelect);
   const [slider, setSlider] = useState<number>(0);
   // const { currentPair } = useAppSelector((state) => state.system.exchange);

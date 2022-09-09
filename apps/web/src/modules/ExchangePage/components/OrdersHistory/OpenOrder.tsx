@@ -72,7 +72,7 @@ const OpenOrder: FC<TOpenOrder> = ({ precisionsConfigs }) => {
     <div>
       <div className={styles.table}>
         <Table
-          dataSource={openOrdersList}
+          dataSource={user ? openOrdersList : []}
           rowKey="0"
           columns={columns}
           loading={user ? loadingOpenOrders : false}
@@ -83,15 +83,16 @@ const OpenOrder: FC<TOpenOrder> = ({ precisionsConfigs }) => {
             pageSize: 5,
           }}
           locale={{
-            emptyText: user ? (
-              <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="You have no open orders." />
-            ) : (
-              <a href="/api/auth/login?returnTo=/exchange">
-                <Button type="primary" className={styles.authButton}>
-                  {'Login'}
-                </Button>
-              </a>
-            ),
+            emptyText:
+              1 !== 1 ? (
+                <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="You have no open orders." />
+              ) : (
+                <a href="/api/auth/login?returnTo=/exchange">
+                  <Button type="primary" className={styles.authButton}>
+                    {'Login'}
+                  </Button>
+                </a>
+              ),
           }}
         />
       </div>

@@ -2,6 +2,7 @@ import { removeCookies } from '@cross/cookies';
 import { Avatar, Dropdown } from '@cross/ui';
 import { Button as ButtonAntd, Divider, Drawer, Menu, Grid } from 'antd';
 import { useUser } from 'api/account';
+import { logout } from 'api/auth';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC, memo, useState } from 'react';
@@ -30,6 +31,7 @@ const UserDrawer: FC<IDrawerMenu> = ({ visible, onClose }) => {
   const { pathname } = useRouter();
   const { mutateAsync: mutateLogout } = useMutation({
     onSuccess() {
+      logout();
       removeCookies(USER_COOKIES.userAccessToken);
     },
   });

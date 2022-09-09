@@ -11,11 +11,13 @@ import { Card } from 'components/earnAndStake';
 import { FilterGroup } from '@cross/ui';
 import { routes } from 'types/routes';
 import { useRouter } from 'next/router';
+import { useUser } from 'api/account';
 
 const CardSection: FC = () => {
   const dispatch = useAppDispatch();
   const { t } = useTypeSafeTranslation();
-  const user = true;
+  const { user } = useUser();
+
   const [filter, setFilter] = useState<'popular' | 'APY'>('popular');
   const router = useRouter();
   const { data, isLoading, getStakeInfoByMaxAPY, getStakeAPYRange } = useEarnInfo();

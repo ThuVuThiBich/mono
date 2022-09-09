@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faStar } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'next-i18next';
 import { ITickerSocket, usePairListQuery } from 'api/exchange';
-import { addFavorite, removeFavorite, useWatchList } from 'api/account';
+import { addFavorite, removeFavorite, useUser, useWatchList } from 'api/account';
 import { USER_COOKIES, WEB_SOCKET_URL } from 'utils/constant';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 import { currencyImgs } from 'assets/images/currency';
@@ -262,8 +262,7 @@ const MainMarket: FC = () => {
   const [marketDatas, setMarketDatas] = useState<ITickerSocket[]>([]);
   const marketDatasRef = useRef<ITickerSocket[]>([]);
 
-  // const { user } = useUser();
-  const user = true;
+  const { user } = useUser();
 
   const { data: pairList, isLoading } = usePairListQuery({ leverage: 'ALL' });
   const { data: watchPairs } = useWatchList({

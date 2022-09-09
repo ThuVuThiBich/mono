@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { Button } from '@cross/ui';
 import { TRequestHistory, useOrderHistory } from 'api/history';
 import { getOrderHistoryColumn } from 'components/orderTable';
+import { useUser } from 'api/account';
 
 interface TOrderHistory {
   precisionsConfigs: any;
@@ -14,9 +15,8 @@ const PAGE_SIZE = 5;
 
 const OrderHistory: FC<TOrderHistory> = ({ precisionsConfigs }) => {
   const { t } = useTranslation();
-  const user = true;
+  const { user } = useUser();
 
-  // const { user } = useUser();
   const [pages, setPages] = useState<TRequestHistory>({
     symbol: '',
     type: 0,

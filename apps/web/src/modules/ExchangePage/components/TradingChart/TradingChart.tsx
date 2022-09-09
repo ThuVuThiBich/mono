@@ -149,8 +149,12 @@ const TradingChart: React.FC = () => {
   }, [listPairValue]);
 
   const lastPrice = useMemo(() => {
-    return headerData?.last ? nDecimalFormat(headerData.last, currentPairValue?.[3] ?? 2) : '__';
-  }, [currentPairValue, headerData?.last]);
+    return tradesData.lastPrice ? nDecimalFormat(String(tradesData.lastPrice), currentPairValue?.[3] ?? 2) : '__';
+  }, [currentPairValue, tradesData.lastPrice]);
+
+  // const lastPrice = useMemo(() => {
+  //   return headerData?.last ? nDecimalFormat(headerData.last, currentPairValue?.[3] ?? 2) : '__';
+  // }, [currentPairValue, headerData?.last]);
 
   const lastPriceUsd = useMemo(() => {
     let prices = headerData?.last || 0;
@@ -178,8 +182,8 @@ const TradingChart: React.FC = () => {
               negative: tradesData.lastPriceType === 3,
             })}
           >
-            {tradesData.lastPrice}
-            {/* {lastPrice} */}
+            {/* {tradesData.lastPrice} */}
+            {lastPrice}
           </span>
           <span className={clsx(styles.textBlock)}>{lastPriceUsd}</span>
         </div>

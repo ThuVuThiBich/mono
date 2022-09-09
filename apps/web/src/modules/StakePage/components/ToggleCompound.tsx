@@ -11,6 +11,7 @@ import { useMutation } from 'react-query';
 import ConfirmModal from './ConfirmModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import { useUser } from 'api/account';
 interface Props {
   coin: any;
   withLabel?: boolean;
@@ -19,8 +20,7 @@ interface Props {
 
 const ToggleCompound: FC<Props> = ({ coin, withLabel, withIcon }) => {
   const { t } = useTypeSafeTranslation();
-  // const { user } = useUser();
-  const user = true;
+  const { user } = useUser();
 
   const [isActive, toggleIsActive, setIsActive] = useToggle(false);
   const [openModal, toggleModal] = useToggle(false);

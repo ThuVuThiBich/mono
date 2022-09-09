@@ -14,21 +14,29 @@ import { routes } from 'types/routes';
 import { TGetUserInfoResponse, useGetUserInfo } from 'api/account';
 import { Button, Surface } from '@cross/ui';
 import { useRouter } from 'next/router';
+import { toggleMFAModal } from 'store/ducks/system/slice';
+import { useDispatch } from 'react-redux';
+import { useAppSelector } from 'hooks';
+import { getUserAuth } from 'store/ducks/account/slice';
 
 interface MFAProps {
   user?: TGetUserInfoResponse;
 }
 
-const MFA: FC<MFAProps> = ({ user }) => {
+const MFA: FC<MFAProps> = () => {
   const { t } = useTranslation();
   const router = useRouter();
+  const dispatch = useDispatch();
+
+  const userData = useAppSelector(getUserAuth);
+
   const isActiveMFA = useMemo(() => {
-    return user?.use_mfa || false;
-  }, [user]);
+    return userData?.['google-auth'] || false;
+  }, [userData]);
 
   const handleMFA = () => {
     if (isActiveMFA) {
-      router.push('/mfa/disable');
+      dispatch(toggleMFAModal(true));
     } else {
       router.push('/mfa/enable');
     }
@@ -42,16 +50,12 @@ const MFA: FC<MFAProps> = ({ user }) => {
         </Tooltip>
         <div className={styles.form}>
           <img alt="secure" src={isActiveMFA ? ActiveSecure.src : SecureIcon.src} />
-          <h4 className="text-14 small">
-            {isActiveMFA ? t('account_management.setup.MFA_enable_title') : 'Not Secure!'}
-          </h4>
+          <h4 className="text-14 small">{isActiveMFA ? 'Secure' : 'Not Secure!'}</h4>
           <p className={styles.description}>
-            {isActiveMFA
-              ? t('account_management.setup.MFA_enable_description')
-              : 'Setup 2-Factor to secure your account'}
+            {isActiveMFA ? 'Google Authenticator' : 'Setup 2-Factor to secure your account'}
           </p>
           <Button type="primary" className={styles.btn} onClick={handleMFA}>
-            {isActiveMFA ? t('account_management.setup.MFA_disable_button') : 'Setup'}
+            {isActiveMFA ? 'Disable' : 'Setup'}
           </Button>
         </div>
       </Space>

@@ -3,7 +3,7 @@ import { Surface } from '@cross/ui';
 import { faDotCircle, faTimesCircle, faWallet } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Space } from 'antd';
-import { useGetUserInfo } from 'api/account';
+import { useGetUserInfo, useUser } from 'api/account';
 import { useAppDispatch } from 'hooks';
 import { useAppSelector } from 'hooks/reduxHook';
 import DepositModal from 'modules/WalletPage/components/Deposit/DepositModal';
@@ -21,9 +21,8 @@ interface WalletProps {}
 const Wallet: FC<WalletProps> = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
-  const user = true;
 
-  // const { user } = useUser();
+  const { user } = useUser();
   const { data: userInfo } = useGetUserInfo({ enabled: !!user });
   const [open, setOpen] = useState<Undefined<'withdraw' | 'deposit' | 'repay' | 'borrow'>>(undefined);
 

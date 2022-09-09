@@ -1,7 +1,7 @@
 import { getCookies, parseJson, setCookies } from '@cross/cookies';
 import { useConvertData } from '@cross/hooks';
 import { Empty, Table } from 'antd';
-import { addFavorite, removeFavorite, useWatchList } from 'api/account';
+import { addFavorite, removeFavorite, useUser, useWatchList } from 'api/account';
 import clsx from 'clsx';
 import { useAppDispatch, useAppSelector, useTypeSafeTranslation } from 'hooks';
 import { useRouter } from 'next/router';
@@ -42,9 +42,8 @@ const TablePanel: React.FC<TablePanelProps> = ({ filterType, onClose, fiat, sear
   const { t } = useTypeSafeTranslation();
   const dispatch = useAppDispatch();
   const queryClient = useQueryClient();
-  const user = true;
 
-  // const { user } = useUser();
+  const { user } = useUser();
 
   const pairList = queryClient.getQueryData('/bb/symbol/list') as any[];
   const { convertData } = useConvertData(pairList);

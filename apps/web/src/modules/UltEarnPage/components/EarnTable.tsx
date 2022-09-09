@@ -15,6 +15,7 @@ import { Avatar, Button } from '@cross/ui';
 import { RadioDuration } from 'components/earnAndStake';
 import { useRouter } from 'next/router';
 import { routes } from 'types/routes';
+import { useUser } from 'api/account';
 
 interface ISortInfo {
   column: 'token' | 'apy' | 'minAmount';
@@ -38,8 +39,7 @@ interface EarnTableProps {
 const EarnTable: FC<EarnTableProps> = ({ search }) => {
   const { t } = useTypeSafeTranslation();
   const dispatch = useAppDispatch();
-  // const { user } = useUser();
-  const user = true;
+  const { user } = useUser();
   const [sortInfo, setSortInfo] = useState<ISortInfo>({ column: 'token', direction: 0 });
   const { data: stakeDatas, isLoading, getStakeInfoByTime } = useEarnInfo();
   const [durations, setDurations] = useState<Record<string, Duration>>({});
