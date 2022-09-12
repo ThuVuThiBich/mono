@@ -4,13 +4,11 @@ import { i18n } from 'next-i18next';
 import { apiBaseUrl, USER_COOKIES, __prod__ } from 'utils/constant';
 import Router from 'next/router';
 import { logout } from 'utils/auth';
-import { getCookies, parseJson, setCookies } from '@cross/cookies';
+import { getCookies, parseJson, removeCookies, setCookies } from '@cross/cookies';
+import router from 'next/router';
+import { routes } from 'types/routes';
 
 const defaultErrorCode = 'error:e_ERROR';
-
-export const authRequest = axios.create({
-  baseURL: apiBaseUrl,
-});
 
 export const request = axios.create({
   baseURL: apiBaseUrl,
@@ -50,10 +48,15 @@ const handleSuccess = (res: AxiosResponse) => {
     } else {
       res.data.message = i18n?.exists(errorCode) ? i18n?.t(errorCode) : i18n?.t(defaultErrorCode);
     }
+    console.log('reject axios', res.data);
 
     return Promise.reject(res.data);
   }
-
+  if (statusCode === -2) {
+    removeCookies(USER_COOKIES.userAccessToken);
+    router.push(routes.login);
+    return Promise.reject(res.data);
+  }
   if (res.request) return res.data;
 };
 
@@ -94,26 +97,6 @@ const handleError = async (err: AxiosError) => {
   }
   return Promise.reject(data);
 };
-
-authRequest.interceptors.response.use(handleSuccess, handleError);
-
-authRequest.interceptors.request.use(
-  async (config: AxiosRequestConfig) => {
-    config = {
-      ...config,
-      data: convertToFormData(config.data),
-      withCredentials: true,
-    };
-
-    // let subAccount = getCookies(USER_COOKIES.subAccount);
-    // if (subAccount && !subAccountExcludeURL.includes(config.url as string)) {
-    //   (config.headers as any)['ultorex-sub-account-id'] = subAccount;
-    // }
-
-    return config;
-  },
-  (error: AxiosError) => Promise.reject(error)
-);
 
 request.interceptors.response.use(handleSuccess, handleError);
 

@@ -1,5 +1,5 @@
 import { useQuery, UseQueryOptions } from 'react-query';
-import { authRequest } from 'api/axios';
+import { request } from 'api/axios';
 import {
   CurrencyGroupItemResponse,
   TGetUserInfoResponse,
@@ -17,7 +17,7 @@ export const useCurrencyGroupItem = (options?: UseQueryOptions<CurrencyGroupItem
   return useQuery<CurrencyGroupItemResponse[]>(
     'index/currency',
     async () => {
-      const { data } = await authRequest.post(`/index/currency`);
+      const { data } = await request.post(`/index/currency`);
       return data;
     },
     options
@@ -43,7 +43,7 @@ export const useOnboardInfo = (option?: UseQueryOptions<IOnboardInfo>) => {
   return useQuery<IOnboardInfo>(
     '/consumer/onboarding/info',
     async () => {
-      const { data } = await authRequest.post(`/consumer/onboarding/info`);
+      const { data } = await request.post(`/consumer/onboarding/info`);
       return data;
     },
     option
@@ -55,7 +55,7 @@ export const useRightsToken = (option?: UseQueryOptions<IRightsTokenInfo>) => {
 };
 
 export const ETHSwap = async (request: any): Promise<any> => {
-  const { data } = await authRequest.post(`/bb/swapFunction`, request);
+  const { data } = await request.post(`/bb/swapFunction`, request);
   return data;
 };
 

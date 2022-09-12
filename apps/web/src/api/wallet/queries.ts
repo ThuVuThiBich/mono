@@ -1,4 +1,4 @@
-import { authRequest } from 'api/axios';
+import { request } from 'api/axios';
 import useDebounce from 'hooks/useDebounce';
 import { useQuery, UseQueryOptions } from 'react-query';
 import {
@@ -24,7 +24,7 @@ export function useWalletQuery(options?: UseQueryOptions<WalletGroupItem>) {
   return useQuery<WalletGroupItem>(
     '/bb/asset/show',
     async () => {
-      const { data } = await authRequest.post('/bb/asset/show');
+      const { data } = await request.post('/bb/asset/show');
       return data;
     },
     options
@@ -35,7 +35,7 @@ export function useSubAccountWallet(accountId: string, options?: UseQueryOptions
   return useQuery<WalletGroupItem>(
     ['/bb/asset/show/account', accountId],
     async () => {
-      const { data } = await authRequest.post('/bb/asset/show/account', { accountId });
+      const { data } = await request.post('/bb/asset/show/account', { accountId });
       return data;
     },
     options
@@ -49,7 +49,7 @@ export const useDepositAddress = (
   return useQuery<IDepositAddress>(
     ['/x-wallet/user/apply-deposit-address', params],
     async () => {
-      const { data } = await authRequest.post(`/x-wallet/user/apply-deposit-address`, params);
+      const { data } = await request.post(`/x-wallet/user/apply-deposit-address`, params);
       return data;
     },
     options
@@ -71,7 +71,7 @@ export const useMinimalWithdrawCoin = (
   return useQuery<IMinimalWithdrawCoin>(
     ['/bb/withdraw/verify/num', params],
     async () => {
-      const { data } = await authRequest.post(`/bb/withdraw/verify/num`, params);
+      const { data } = await request.post(`/bb/withdraw/verify/num`, params);
       return data;
     },
     options
@@ -82,7 +82,7 @@ export const useWithdrawFee = (params: { type: string }, options?: UseQueryOptio
   return useQuery<IWithdrawFee>(
     ['/user/asset/show/coin', params],
     async () => {
-      const { data } = await authRequest.post(`/user/asset/show/coin`, params);
+      const { data } = await request.post(`/user/asset/show/coin`, params);
       return data;
     },
     options
@@ -96,7 +96,7 @@ export const useWithdrawOrder = (
   return useQuery<IWithdrawOrderInfo>(
     ['/user/asset/withdraw/get/order', params],
     async () => {
-      const { data } = await authRequest.post(`/user/asset/withdraw/get/order`, params);
+      const { data } = await request.post(`/user/asset/withdraw/get/order`, params);
       return data;
     },
     options

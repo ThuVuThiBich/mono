@@ -1,4 +1,4 @@
-import { authRequest, request } from 'api/axios';
+import { request } from 'api/axios';
 import { useQuery, UseQueryOptions } from 'react-query';
 import { IUserStakingInfo } from '.';
 import { getAutoCompoundFlag, getUserStakingInfoRequest } from './request';
@@ -8,7 +8,7 @@ export const useStakingAmount = (options?: UseQueryOptions<IStakingAmount>) => {
   return useQuery<IStakingAmount>(
     '/user/mine/getStakingAmount',
     async () => {
-      const { data } = await authRequest('/user/mine/getStakingAmount');
+      const { data } = await request('/user/mine/getStakingAmount');
       return data;
     },
     options
@@ -19,7 +19,7 @@ export const useLockedAmount = (options?: UseQueryOptions<ILockedInfo>) => {
   return useQuery<ILockedInfo>(
     '/user/mine/lockInfo',
     async () => {
-      const { data } = await authRequest.post('/user/mine/lockinfo');
+      const { data } = await request.post('/user/mine/lockinfo');
       return data;
     },
     options

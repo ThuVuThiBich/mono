@@ -1,4 +1,4 @@
-import { authRequest } from 'api/axios';
+import { request } from 'api/axios';
 import {
   IUnlockStakingParams,
   ILockedStakingParams,
@@ -9,7 +9,7 @@ import {
 } from './types';
 
 export const stakeRequest = async (params: ILockedStakingParams) => {
-  const { data } = await authRequest({
+  const { data } = await request({
     method: 'POST',
     url: '/user/mine/locked',
     data: params,
@@ -19,7 +19,7 @@ export const stakeRequest = async (params: ILockedStakingParams) => {
 };
 
 export const unlockStakingRequest = async (params: IUnlockStakingParams) => {
-  const { data } = await authRequest({
+  const { data } = await request({
     method: 'POST',
     url: '/user/mine/unlockStaking',
     data: params,
@@ -29,7 +29,7 @@ export const unlockStakingRequest = async (params: IUnlockStakingParams) => {
 };
 
 export const stakingRequest = async (params: IStakingParams) => {
-  return authRequest({
+  return request({
     method: 'POST',
     url: '/user/mine/locked',
     data: params,
@@ -55,12 +55,12 @@ export const getUserStakingInfoRequest = async (type: 'staking' | 'earning' | 'a
     };
   }
 
-  const { data } = await authRequest.post(`/mine/getBalanceAndTokenStaking`, params);
+  const { data } = await request.post(`/mine/getBalanceAndTokenStaking`, params);
   return data;
 };
 
 export const getAutoCompoundFlag = async (): Promise<IAutoCompoundFlag> => {
-  const { data } = await authRequest({
+  const { data } = await request({
     method: 'POST',
     url: '/mine/get-auto-compound',
   });
@@ -68,7 +68,7 @@ export const getAutoCompoundFlag = async (): Promise<IAutoCompoundFlag> => {
 };
 
 export const setFlagAutoCompound = async (params: IAutoCompoundParam) => {
-  return await authRequest({
+  return await request({
     method: 'POST',
     url: '/mine/auto-compound',
     data: params,

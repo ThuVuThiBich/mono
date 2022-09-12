@@ -1,10 +1,10 @@
-import { authRequest } from 'api/axios';
+import { request } from 'api/axios';
 import { TGetPresignedURLRequest, TGetPresignedURLResponse, TVerifyUserResponse, TVerifyUserRequest } from './types';
 import axios from 'axios';
 // import { TChangeNickName, TSuccessResponse } from "./types";
 
 export const getPresignedUrl = async (request: TGetPresignedURLRequest): Promise<TGetPresignedURLResponse> => {
-  const { data } = await authRequest.post(`/skipid/user/verify/picture/presigned-url`, request);
+  const { data } = await request.post(`/skipid/user/verify/picture/presigned-url`, request);
   return data;
 };
 
@@ -23,6 +23,6 @@ const uploadImage = (presignedUrl: string, file: File) => {
 };
 
 export const verifyUser = async (request: TVerifyUserRequest): Promise<TVerifyUserResponse> => {
-  const { data } = await authRequest.post(`/bb/user/real/verify`, request);
+  const { data } = await request.post(`/bb/user/real/verify`, request);
   return data;
 };

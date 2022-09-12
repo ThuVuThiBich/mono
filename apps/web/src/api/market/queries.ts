@@ -1,4 +1,4 @@
-import { authRequest, request } from 'api/axios';
+import { request } from 'api/axios';
 import { useQuery, UseQueryOptions } from 'react-query';
 import { MarketGroupItem } from './types';
 
@@ -13,7 +13,9 @@ export function useMarketGroupQuery(options?: UseQueryOptions<MarketGroupItem[]>
   );
 }
 
-export const placeOrderMarket = async (request: any): Promise<any> => {
-  const { data } = await authRequest.post(`/bb/market/order/place-order`, request);
+export const placeOrderMarket = async (params: any): Promise<any> => {
+  console.log('zoooooo');
+
+  const { data } = await request.post(`/bb/market/order/place-order`, params);
   return data;
 };
