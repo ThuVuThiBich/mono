@@ -1,4 +1,4 @@
-import { authRequest, request } from 'api/axios';
+import { request } from 'api/axios';
 import { useQuery, UseQueryOptions } from 'react-query';
 import { IWalletHistoryResponse, IWalletHistoryParams, TRequestHistory, TSuccessResponse } from './types';
 
@@ -17,7 +17,7 @@ export const useWalletHistory = (params: IWalletHistoryParams, options?: UseQuer
   return useQuery<IWalletHistoryResponse>(
     ['/user/asset/wallet/history', params],
     async () => {
-      const { data } = await authRequest.post(`/user/asset/wallet/history`, params);
+      const { data } = await request.post(`/user/asset/wallet/history`, params);
       return data;
     },
     options
@@ -28,7 +28,7 @@ export const useTradeHistory = (params: TRequestHistory, options?: UseQueryOptio
   return useQuery<TSuccessResponse>(
     ['/bb/market/order/trade/history', params],
     async () => {
-      const { data } = await authRequest.post(`/bb/market/order/trade/history`, params);
+      const { data } = await request.post(`/bb/market/order/trade/history`, params);
       return data;
     },
     options
@@ -39,7 +39,7 @@ export const useOrderHistory = (params: TRequestHistory, options?: UseQueryOptio
   return useQuery<TSuccessResponse>(
     ['/bb/market/order/order/history', params],
     async () => {
-      const { data } = await authRequest.post(`/bb/market/order/order/history`, params);
+      const { data } = await request.post(`/bb/market/order/order/history`, params);
       return data;
     },
     options
