@@ -4,6 +4,7 @@ import { FilterGroup } from '@cross/ui';
 import { faWallet } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Space } from 'antd';
+import { useUser } from 'api/account';
 import { usePairListQuery } from 'api/pair_list';
 import { useAppDispatch, useAppSelector } from 'hooks';
 import { useTranslation } from 'next-i18next';
@@ -35,6 +36,8 @@ interface InputData {
 const SpotTrade: FC = memo(() => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+
+  const { user } = useUser();
 
   const { walletFree: availableWallet } = useWallet();
 
@@ -146,29 +149,20 @@ const SpotTrade: FC = memo(() => {
   );
 
   /**Renderer */
-  const coin = useMemo(() => currentPair?.split('_')[0], [availableWallet, currentPair]);
-  const moneyCoin = useMemo(() => currentPair?.split('_')[1], [availableWallet, currentPair]);
+  const coin = useMemo(() => currentPair?.split('_')[0], [currentPair]);
+  const moneyCoin = useMemo(() => currentPair?.split('_')[1], [currentPair]);
 
   const available = useMemo(() => {
     return {
-      coin: availableWallet[coin]?.number || '0',
-      money: Number(availableWallet[moneyCoin]?.number) ?? '0',
+      coin: (user && availableWallet[coin]?.number) || '0',
+      money: (user && Number(availableWallet[moneyCoin]?.number)) ?? '0',
     };
-  }, [availableWallet, moneyCoin, coin]);
+  }, [availableWallet, moneyCoin, coin, user]);
 
-  const currentPairData = useMemo(
-    () => pairs?.find((pair: any) => pair[0] === currentPair),
-    [availableWallet, currentPair]
-  );
+  const currentPairData = useMemo(() => pairs?.find((pair: any) => pair[0] === currentPair), [currentPair, pairs]);
 
-  const coinDecimalAmount = useMemo(
-    () => Number((currentPairData && currentPairData[2]) || 0),
-    [availableWallet, currentPair]
-  );
-  const moneyCoinDecimalAmount = useMemo(
-    () => Number((currentPairData && currentPairData[3]) || 0),
-    [availableWallet, currentPair]
-  );
+  const coinDecimalAmount = useMemo(() => Number((currentPairData && currentPairData[2]) || 0), [currentPairData]);
+  const moneyCoinDecimalAmount = useMemo(() => Number((currentPairData && currentPairData[3]) || 0), [currentPairData]);
 
   const coinLimit = useMemo(() => {
     return currentPairValue?.[1];
