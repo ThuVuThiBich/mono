@@ -23,6 +23,6 @@ const uploadImage = (presignedUrl: string, file: File) => {
 };
 
 export const verifyUser = async (request: TVerifyUserRequest): Promise<TVerifyUserResponse> => {
-  const { data } = await authRequest.post(`/skipid/user/verify`, request);
+  const { data } = await authRequest.post(`/bb/user/real/verify`, request);
   return data;
 };

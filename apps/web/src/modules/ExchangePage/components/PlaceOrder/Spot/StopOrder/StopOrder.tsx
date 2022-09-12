@@ -92,7 +92,7 @@ export const StopOrder: FC<StopOrderProps> = ({
       Toast('success', t(' order_success'));
     },
     onError: (error: TError) => {
-      Toast('error', error.message);
+      Toast('error', error.msg_code);
     },
   });
 

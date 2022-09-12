@@ -12,14 +12,16 @@ import BackSideImage from '../assets/img/BackSide.png';
 import { useTypeSafeTranslation } from 'hooks';
 import { Button, InputWithLabel, Option, SelectWithLabel, Surface } from '@cross/ui';
 import { FileUpload } from 'components/fileUpload';
+import { stableValueHash } from 'react-query/types/core/utils';
 
 interface UploadDocumentProps {
   onSuccess?: Function;
   kycData: any[];
   isLoading: boolean;
+  setCurrent: Function;
 }
 
-const UploadDocument: React.FC<UploadDocumentProps> = ({ onSuccess, kycData, isLoading }) => {
+const UploadDocument: React.FC<UploadDocumentProps> = ({ onSuccess, kycData, isLoading, setCurrent }) => {
   const { t } = useTypeSafeTranslation();
   const [data, setData] = kycData;
   const [form] = Form.useForm();
@@ -31,6 +33,7 @@ const UploadDocument: React.FC<UploadDocumentProps> = ({ onSuccess, kycData, isL
       onSuccess(tempData);
     }
   };
+  console.log('data Upload Document', data);
 
   const handleChangeFrontImage = (file: File) => {
     form.setFieldsValue({ front: file });
@@ -46,13 +49,23 @@ const UploadDocument: React.FC<UploadDocumentProps> = ({ onSuccess, kycData, isL
   };
 
   return (
-    <Form onFinish={onFinish} form={form}>
+    <Form
+      initialValues={{ documentType: data.documentType, identityNumber: data.identityNumber }}
+      onFinish={onFinish}
+      form={form}
+    >
       <Surface className={styles.surface}>
         <Form.Item name="documentType" rules={[{ required: true }]}>
           <SelectWithLabel placeholder="Choose document type" label="Document type">
-            {[1, 2, 3, 4].map((option, index) => (
-              <Option key={index} value={option}>
-                {t(`kyc.document_type.${option}` as any)}
+            {[
+              { id: 1, value: 'Passport' },
+              { id: 2, value: "Driver's license" },
+              { id: 3, value: 'ID card' },
+              { id: 4, value: 'Other' },
+              { id: 5, value: 'Big Customer' },
+            ].map((option) => (
+              <Option key={option.value} value={option.id}>
+                {option.value as any}
               </Option>
             ))}
           </SelectWithLabel>
@@ -62,7 +75,7 @@ const UploadDocument: React.FC<UploadDocumentProps> = ({ onSuccess, kycData, isL
         </Form.Item>
         <Row gutter={[15, 15]}>
           <Col span="12">
-            <Form.Item rules={[{ required: true }]} name="front">
+            <Form.Item name="front">
               <FileUpload
                 label="Front Side"
                 description="Upload the front side of your id"
@@ -78,7 +91,7 @@ const UploadDocument: React.FC<UploadDocumentProps> = ({ onSuccess, kycData, isL
               noStyle
             >
               {({ getFieldValue }) => (
-                <Form.Item rules={[{ required: getFieldValue('documentType') !== 1 }]} name="back">
+                <Form.Item name="back">
                   <FileUpload
                     label="Back Side"
                     description="Upload the back side of your id"
@@ -91,7 +104,7 @@ const UploadDocument: React.FC<UploadDocumentProps> = ({ onSuccess, kycData, isL
             </Form.Item>
           </Col>
           <Col span="24">
-            <Form.Item rules={[{ required: true }]} name="selfie">
+            <Form.Item name="selfie">
               <FileUpload
                 label="Selfie"
                 description="Your selfie photo must include"
@@ -106,6 +119,21 @@ const UploadDocument: React.FC<UploadDocumentProps> = ({ onSuccess, kycData, isL
             </Form.Item>
           </Col>
         </Row>
+        <Button
+          className={styles.btnGoBack}
+          onClick={() => {
+            const newData = {
+              ...data,
+              documentType: form.getFieldValue('documentType'),
+              identityNumber: form.getFieldValue('identityNumber'),
+            };
+            setData(newData);
+            setCurrent(0);
+          }}
+          type="primary"
+        >
+          Go back
+        </Button>
         <Button loading={isLoading} htmlType="submit" className={styles.btnSubmit} type="secondary">
           <Space align="center">
             Submit <FontAwesomeIcon icon={faLongArrowAltRight} />

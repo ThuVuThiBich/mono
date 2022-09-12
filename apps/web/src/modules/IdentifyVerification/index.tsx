@@ -47,29 +47,32 @@ const IdentifyVerification: FC = () => {
     try {
       setLoading(true);
       const payload = { ...tempData };
-      const presignedUrl = await mutateGetPresignedURL({
-        sub: user?.sub || '',
-      });
-      await Promise.all(createKYCUploadPromises(presignedUrl, payload));
+      // const presignedUrl = await mutateGetPresignedURL({
+      //   sub: user?.sub || '',
+      // });
+      // await Promise.all(createKYCUploadPromises(presignedUrl, payload));
 
       delete payload.front;
       delete payload.back;
       delete payload.selfie;
 
       // Format payload
-      payload.phoneNumber = `${payload.prefixPhoneNumber} ${payload.phoneNumber}`;
-      delete payload.prefixPhoneNumber;
-
+      // payload.phoneNumber = `${payload.prefixPhoneNumber} ${payload.phoneNumber}`;
+      payload.section = payload.prefixPhoneNumber;
       payload.country = countries[payload.countryCode].name;
-      payload.nationality = countries[payload.nationalityCode].nationality;
+      payload.idNumber = payload.identityNumber;
+      delete payload.prefixPhoneNumber;
+      delete payload.identityNumber;
+      delete payload.countryCode;
 
+      // payload.nationality = countries[payload.nationalityCode].nationality;
       await mutateVerifyUser({
         ...payload,
         sub: user?.sub || '',
       } as TVerifyUserRequest);
       setCurrent(2);
     } catch (error: any) {
-      message.error(t('kyc.identity_failed'));
+      message.error('Identity Failed');
     }
     setLoading(false);
   };
@@ -92,14 +95,16 @@ const IdentifyVerification: FC = () => {
           kycData={[data, setData]}
         />
       ) : null}
-      {current === 1 ? <UploadDocument isLoading={isLoading} onSuccess={onFinish} kycData={[data, setData]} /> : null}
+      {current === 1 ? (
+        <UploadDocument isLoading={isLoading} onSuccess={onFinish} setCurrent={setCurrent} kycData={[data, setData]} />
+      ) : null}
       {current === 2 ? <Congratulation /> : null}
 
-      {current === 1 && (
+      {/* {current === 1 && (
         <Button className={styles.btnGoBack} onClick={() => setCurrent(0)} type="primary">
           Go back
         </Button>
-      )}
+      )} */}
     </div>
   );
 };

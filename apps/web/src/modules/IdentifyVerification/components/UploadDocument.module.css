@@ -10,8 +10,7 @@
 
 .btnSubmit {
   position: absolute !important;
-  right: 20px;
-  bottom: -20px;
+  right: 24px;
   z-index: 1;
 }
 

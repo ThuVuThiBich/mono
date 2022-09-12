@@ -1,5 +1,5 @@
 .surface {
-  padding: 23px 21px 25px 24px;
+  padding: 23px 21px 55px 24px;
   position: relative;
   margin-bottom: 30px;
 }
@@ -11,7 +11,6 @@
 .btnSubmit {
   position: absolute;
   right: 21px;
-  bottom: -20px;
   z-index: 1;
 }
 
