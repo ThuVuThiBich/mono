@@ -40,11 +40,11 @@ export const ShareRateModal: FC<ShareRateModalProps> = ({ onClose, open }) => {
   return (
     <Modal width={360} centered visible={open} onCancel={onClose}>
       <div className="uppercase bold">
-        <Trans
+        {/* <Trans
           i18nKey="referral.card.update_commission_ref"
           t={t as any}
           components={[<span className="success" key="1" />]}
-        />
+        /> */}
       </div>
 
       <div className={styles.divider} />

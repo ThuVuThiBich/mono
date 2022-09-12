@@ -70,19 +70,43 @@ const StakeModalConfirm: FC<Props> = ({ visible, onClose, payload, min, apy }) =
       <div className={styles.body}>
         <Surface className={styles.alert} borderLess>
           <Row gutter={[24, 8]}>
-            {/* <Trans
-              values={{ min, apy }}
-              i18nKey={`stake.stake_notify.${payload.coinName}`}
-              components={[
-                <Col span={8} className="disabled text-12" key={0} />,
-                <Col span={16} className="primary text-12" key={0} />,
-              ]}
-            /> */}
+            Rewards come in daily. Rewards are given directly to the wallet (they show up in the wallet, but cannot be
+            traded or withdrawn)
+            <Col span={8} className="disabled text-12">
+              Minimum:
+            </Col>
+            <Col span={16} className={styles.warning}>
+              32 ETH. Can stake in blocks of 32 ETH each.
+            </Col>
+            <Col span={8} className="disabled text-12">
+              Restrictions:
+            </Col>
+            <Col span={16} className={styles.warning}>
+              cannot Unstake; rewards are not accessible or withdrawable; rewards not compounded
+            </Col>
+            <Col span={8} className="disabled text-12">
+              APR:
+            </Col>
+            <Col span={16} className={styles.warning}>
+              ~ 4% paid daily, directly to the staked wallet address
+            </Col>
+            <Col span={8} className="disabled text-12">
+              Ethereum 2.0 note:
+            </Col>
+            <Col span={16} className={styles.warning}>
+              Staked coins cannot be unstaked until the official launch of Ethereum 2.0.
+            </Col>
+            <Col span={8} className="disabled text-12">
+              Process Time:
+            </Col>
+            <Col span={16} className={styles.warning}>
+              daily cutoff of 6:00 UTC
+            </Col>
           </Row>
         </Surface>
 
         <Checkbox checked={acceptTerm} onChange={(e) => setAccepTerm(e.target.checked)} className={styles.checkbox}>
-          <Trans i18nKey="stake.agree_stake_term_2" t={t as any} />
+          I have read and I agree to Terms of Use
         </Checkbox>
       </div>
 

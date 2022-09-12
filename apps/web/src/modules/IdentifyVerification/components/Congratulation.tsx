@@ -19,11 +19,7 @@ const Congratulation: React.FC = () => {
         status="success"
         icon={<img className={styles.icon} alt="check" src={CheckIcon.src} />}
         title={<span className={styles.title}>{t('kyc.subscription_success')}</span>}
-        subTitle={
-          <p className={styles.description}>
-            <Trans i18nKey="kyc.subscription_success_desc" />
-          </p>
-        }
+        subTitle={<p className={styles.description}>{/* <Trans i18nKey="kyc.subscription_success_desc" /> */}</p>}
         extra={[
           <Button type="secondary" key="dashboard">
             <Link href={routes.accountManagement}>

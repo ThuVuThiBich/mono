@@ -252,7 +252,10 @@ const StakeModal: FC = () => {
 
               <Space size={15} align="start">
                 <img src="/images/svgs/asterisk-solid.svg" alt="asterisk-solid" />
-                <span className="text-12 disabled">{`Warning ${stakeInfo.coin}`}</span>
+                <span className="text-12 disabled">
+                  Rewards come in daily. Rewards are given directly to the wallet (they show up in the wallet, but
+                  cannot be traded or withdrawn)
+                </span>
               </Space>
 
               {stakeInfo.coin === 'ORBS' && (
@@ -267,11 +270,7 @@ const StakeModal: FC = () => {
                 onChange={(e) => setAccepTerm(e.target.checked)}
                 className={styles.checkbox}
               >
-                {/* <Trans
-                  i18nKey="stake.agree_stake_term"
-                  t={t as any}
-                  components={[<a key="1" href={getLink(TERMS_OF_USE)} target="_blank" rel="noopener noreferrer" />]}
-                /> */}
+                I have read and I agree to Terms of Use
               </Checkbox>
 
               {COIN_AUTO_COMPOUND.includes(stakeInfo.coin) && (
