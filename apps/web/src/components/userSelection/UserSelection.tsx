@@ -8,6 +8,8 @@ import { routes } from 'types/routes';
 import { useRouter } from 'next/router';
 import { Avatar } from '@cross/ui';
 import { Surface } from '@cross/ui';
+import { useMutation, useQueryClient } from 'react-query';
+import { logout } from 'api/auth';
 
 const { Text } = Typography;
 
@@ -63,7 +65,13 @@ const UserSelection: FC = () => {
     }
     return false;
   };
-
+  const queryClient = useQueryClient();
+  const { mutateAsync: mutateLogout } = useMutation(logout, {
+    onSuccess() {
+      queryClient.setQueryData('me', undefined);
+      router.push(routes.home);
+    },
+  });
   return (
     <Surface borderMd className={styles.root}>
       <Avatar className={styles.avatar} size={52} />
@@ -75,7 +83,7 @@ const UserSelection: FC = () => {
           </a>
         </Link>
       ))}
-      <a onClick={() => {}}>
+      <a onClick={() => mutateLogout()}>
         <ItemSelection active={false} title={<Text type="secondary">Logout</Text>} />
       </a>
     </Surface>

@@ -1,3 +1,6 @@
 .slider :global .ant-slider-mark {
   display: none;
 }
+.slider :global .ant-slider-with-marks {
+  margin-bottom: 0;
+}

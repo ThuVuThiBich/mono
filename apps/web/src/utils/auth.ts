@@ -1,9 +1,9 @@
 import { removeCookies } from '@cross/cookies';
-import { clearSiteCookie } from 'api/account';
+import { routes } from 'types/routes';
 import { USER_COOKIES } from './constant';
 
 export const logout = async () => {
   removeCookies(USER_COOKIES.subAccount);
-  await clearSiteCookie();
-  // location.href = '/api/auth/logout';
+  removeCookies(USER_COOKIES.userAccessToken);
+  window.location.href = routes.home;
 };

@@ -1,12 +1,11 @@
-import { removeCookies } from '@cross/cookies';
 import { Avatar, Dropdown } from '@cross/ui';
 import { Button as ButtonAntd, Divider, Drawer, Grid, Menu } from 'antd';
 import { logout } from 'api/auth';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import router, { useRouter } from 'next/router';
 import { FC, memo, useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
-import { USER_COOKIES } from 'utils/constant';
+import { routes } from 'types/routes';
 import { accountRoutes } from './routes';
 import styles from './styles.module.less';
 
@@ -31,7 +30,7 @@ const UserDrawer: FC<IDrawerMenu> = ({ visible, onClose }) => {
   const { mutateAsync: mutateLogout } = useMutation(logout, {
     onSuccess() {
       queryClient.setQueryData('me', undefined);
-      removeCookies(USER_COOKIES.userAccessToken);
+      router.push(routes.home);
     },
   });
   return (
@@ -66,7 +65,7 @@ const AccountDropdown: FC = () => {
   const { mutateAsync: mutateLogout } = useMutation(logout, {
     onSuccess() {
       queryClient.setQueryData('me', undefined);
-      removeCookies(USER_COOKIES.userAccessToken);
+      router.push(routes.home);
     },
   });
   const accountMenu = (
