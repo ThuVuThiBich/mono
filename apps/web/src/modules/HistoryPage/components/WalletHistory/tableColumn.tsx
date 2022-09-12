@@ -8,6 +8,18 @@ import { getScanAddress } from './getScanAddress';
 import numeral from 'numeral';
 import { Avatar } from '@cross/ui';
 
+type TOrderTypes = {
+  [key: string]: string;
+};
+
+const orderTypes: TOrderTypes = {
+  type10: 'Buy',
+  type11: 'Sell',
+  type12: 'Distribution payout',
+  type13: 'Trading Fee',
+  type31: 'Balance Adjustment',
+};
+
 export const getTableColumn = (
   t: TFunction,
   resendEmail: (orderId: string) => void,
@@ -43,8 +55,8 @@ export const getTableColumn = (
     title: 'Type',
     key: 'orderType',
     dataIndex: 'orderType',
-    render(value) {
-      return <span> {t(`historypage.wallethistory.type${value}`)}</span>;
+    render(value: string) {
+      return <span> {orderTypes[`type${value}`]}</span>;
     },
   },
   {
@@ -97,17 +109,17 @@ export const getTableColumn = (
 
       if (Number(status) === 1) {
         if (record.orderType === 4) {
-          return t('historypage.wallethistory.withdraw_s1');
+          return 'Create';
         } else {
-          return t('historypage.wallethistory.status2');
+          return 'Waiting deposit';
         }
       }
 
       if (Number(status) === 2) {
         if (record.orderType === 4) {
-          return t('historypage.wallethistory.withdraw_s2');
+          return 'Sent';
         } else {
-          return t('historypage.wallethistory.status1');
+          return 'Done';
         }
       }
 
