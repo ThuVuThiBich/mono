@@ -34,7 +34,7 @@ const IdentifyVerification: FC = () => {
     countryCode: '',
     postcode: '',
     usCitizen: false,
-    documentType: 0,
+    documentType: null,
     identityNumber: undefined,
     front: undefined,
     back: undefined,
