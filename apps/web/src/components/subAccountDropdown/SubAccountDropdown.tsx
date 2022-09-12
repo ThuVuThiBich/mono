@@ -1,8 +1,8 @@
 import { FC, memo, useMemo } from 'react';
 import styles from './styles.module.less';
 
-import { Button } from 'components/Button';
-import { Dropdown } from 'components/Dropdown';
+import { Button } from '@cross/ui/button';
+import { Dropdown } from '@cross/ui/dropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faExchangeAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useSubAccountsQuery } from 'api/sub_account';

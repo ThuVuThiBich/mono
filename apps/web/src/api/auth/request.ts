@@ -1,8 +1,8 @@
-import { authRequest, request } from 'api/axios';
+import { request } from 'api/axios';
 import { TCodeRequest, TLoginRequest, TRegisterRequest, TTokenResponse } from './types';
 
 export const getAuthToken = async (): Promise<any> => {
-  const { data } = await authRequest.post(`/consumer/gain/authToken`);
+  const { data } = await request.post(`/consumer/gain/authToken`);
   return data;
 };
 
