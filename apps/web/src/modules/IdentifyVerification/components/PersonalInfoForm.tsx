@@ -34,7 +34,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ onSuccess, kycData 
   const { xs } = useBreakpoint();
 
   const onFinish = (values: any) => {
-    setData({ ...values, birthday: values.birthday.format('YYYY-MM-DD') });
+    setData({ ...data, ...values, birthday: values.birthday.format('YYYY-MM-DD') });
     if (onSuccess) {
       onSuccess();
     }
@@ -145,29 +145,29 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ onSuccess, kycData 
           />
         </Form.Item>
 
-        <Form.Item
+        {/* <Form.Item
           validateFirst
           name="address"
           rules={[{ required: true, whitespace: true }, alphanumericalRule(t), maxLengthRule(100, t)]}
         >
           <InputWithLabel placeholder="Your Address" label="Address" />
-        </Form.Item>
+        </Form.Item> */}
 
-        <Form.Item
+        {/* <Form.Item
           validateFirst
           name="city"
           rules={[{ required: true, whitespace: true }, alphanumericalRule(t), maxLengthRule(50, t)]}
         >
           <InputWithLabel placeholder="Your City" id="city" label="City" />
-        </Form.Item>
-
+        </Form.Item> */}
+        {/* 
         <Form.Item
           validateFirst
           name="prefectures"
           rules={[{ required: true, whitespace: true }, alphanumericalRule(t), maxLengthRule(100, t)]}
         >
           <InputWithLabel placeholder="Your Prefectures" label="Prefectures" />
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item name="countryCode" rules={[{ required: true }]}>
           <SelectWithLabel
@@ -186,7 +186,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ onSuccess, kycData 
           </SelectWithLabel>
         </Form.Item>
 
-        <Form.Item name="nationalityCode" rules={[{ required: true }]}>
+        {/* <Form.Item name="nationalityCode" rules={[{ required: true }]}>
           <SelectWithLabel
             label="Nationality"
             showSearch
@@ -201,22 +201,21 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ onSuccess, kycData 
               );
             })}
           </SelectWithLabel>
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item
           validateFirst
-          name="postcode"
+          name="partnerCode"
           rules={[{ required: true, whitespace: true }, alphanumericalRule(t), maxLengthRule(15, t)]}
         >
-          <InputWithLabel placeholder="Your Postcode" label="Postcode" />
+          <InputWithLabel placeholder="Your PartnerCode" label="PartnerCode" />
         </Form.Item>
 
-        <Form.Item name="usCitizen" valuePropName="checked">
+        {/* <Form.Item name="usCitizen" valuePropName="checked">
           <CheckboxWithLabel label="US CITIZEN" id="uscitizen" />
-        </Form.Item>
-
+        </Form.Item> */}
         <Button htmlType="submit" className={styles.btnSubmit} type="secondary">
-          <Space align="center">
+          <Space align="end">
             Continue <FontAwesomeIcon icon={faLongArrowAltRight} />
           </Space>
         </Button>

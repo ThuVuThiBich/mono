@@ -57,7 +57,7 @@ export const MarketOrder: FC<MarketOrderProps> = ({
       Toast('success', t(' order_success'));
     },
     onError: (error: TError) => {
-      Toast('error', error.message);
+      Toast('error', error.msg_code);
     },
   });
 
