@@ -1,33 +1,30 @@
-import { FC, useState } from 'react';
-import styles from './styles.module.less';
-import { Form, Row, Col, message } from 'antd';
-import { Input, InputWithLabel, Checkbox, Button } from '@cross/ui';
+import { setCookies } from '@cross/cookies';
+import { Button, Checkbox, InputWithLabel } from '@cross/ui';
+import { Col, Form, message, Row } from 'antd';
+import { useUser } from 'api/account';
+import { login } from 'api/auth';
+import { enter } from 'api/gg_auth';
+import { TError } from 'api/types';
+import MFAModal from 'components/mfaModal/MFAModal';
+import { useAppSelector } from 'hooks';
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
-import { validateEmail } from 'utils/validator';
-import { useMutation, useQueryClient } from 'react-query';
-import { TError } from 'api/types';
-import { login } from 'api/auth';
-import { setCookies } from '@cross/cookies';
-import { USER_COOKIES } from 'utils/constant';
 import { useRouter } from 'next/router';
-import { routes } from 'types/routes';
-import { useUser } from 'api/account';
-import { getUserAuth, setUserAuth } from 'store/ducks/account/slice';
+import { FC, useState } from 'react';
+import { useMutation } from 'react-query';
 import { useDispatch } from 'react-redux';
-import { useAppSelector } from 'hooks';
-import MFAModal from 'components/mfaModal/MFAModal';
+import { setUserAuth } from 'store/ducks/account/slice';
 import { getMFAModal, toggleMFAModal } from 'store/ducks/system/slice';
-import { enter } from 'api/gg_auth';
+import { routes } from 'types/routes';
+import { USER_COOKIES } from 'utils/constant';
+import { validateEmail } from 'utils/validator';
+import styles from './styles.module.less';
 const Login: FC = () => {
   const t = useTranslation();
   const router = useRouter();
-  const { refetch, user } = useUser();
-  // if (user) {
-  //   router.push(routes.home);
-  // }
+  const { refetch } = useUser();
+ 
   const dispatch = useDispatch();
-  const userData = useAppSelector(getUserAuth);
   const isVisibleMFAModal = useAppSelector(getMFAModal);
   const [emailValidateType, setEmailValidateType] = useState<'onBlur' | 'onChange'>('onBlur');
   const { mutateAsync: mutateToken } = useMutation(login, {
