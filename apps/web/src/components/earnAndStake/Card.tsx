@@ -46,7 +46,7 @@ const Card: FC<ICardProps> = ({ coin, apyRange, data, type, onClick, children })
         {children}
       </div>
       <Button onClick={handleClick} className={styles.btnSubmit} size="large">
-        {type === 'earn' ? 'earn' : 'stake'}
+        {type === 'earn' ? 'Earn' : 'Stake'}
       </Button>
     </Surface>
   );

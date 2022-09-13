@@ -43,8 +43,8 @@ const CardSection: FC = () => {
         <div className={styles.filterGroup}>
           <FilterGroup
             datas={[
-              { label: t('stake.popular'), value: 'popular' },
-              { label: t('stake.max_apy'), value: 'APY' },
+              { label: 'Popular', value: 'popular' },
+              { label: 'Max APY/APR', value: 'APY' },
             ]}
             value={filter}
             onChange={(e) => {

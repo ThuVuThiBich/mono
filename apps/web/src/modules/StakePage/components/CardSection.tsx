@@ -42,7 +42,7 @@ const CardSection: FC = () => {
         <div className={styles.filterGroup}>
           <FilterGroup
             datas={[
-              { label: 'popular', value: 'popular' },
+              { label: 'Popular', value: 'popular' },
               { label: 'Max APY/APR', value: 'APY' },
             ]}
             value={filter}

@@ -35,9 +35,9 @@ const StakeInfoCard: FC<StakeInfoCardProps> = ({ stakeInfo, stakedDate }) => {
       type,
       stake_date: dayjs().format(DATE_FORMAT),
       value_date: dayjs().add(valueDate, 'days').format(DATE_FORMAT),
-      interest_period: `${interestPeriod} ${interestPeriod > 1 ? t('common.days') : t('common.day')}`,
+      interest_period: `${interestPeriod} ${interestPeriod > 1 ? 'days' : 'day'}`,
       interest_end_date: dayjs().add(Number(stakeInfo?.time), 'days').format(DATE_FORMAT),
-      redemption_period: `1 ${t('common.day')}`,
+      redemption_period: `1 day`,
       redemption_date: dayjs()
         .add(stakeInfo?.timeUnstakeReward as number, 'minutes')
         .add(1, 'days')
@@ -52,49 +52,49 @@ const StakeInfoCard: FC<StakeInfoCardProps> = ({ stakeInfo, stakedDate }) => {
     if (type === 'stake') {
       switch (stakeInfo?.coin) {
         case 'ADA':
-          payload.redemption_period = t('common.immediately');
+          payload.redemption_period = 'Immediately';
           break;
 
         case 'SOL':
-          payload.redemption_period = `2 ${t('common.days')}`;
+          payload.redemption_period = `2 days`;
           break;
 
         case 'XCR':
-          payload.redemption_period = t('common.immediately');
+          payload.redemption_period = 'Immediately';
           break;
 
         case 'ETH':
-          payload.redemption_period = t('stake.can_not_unstake');
+          payload.redemption_period = 'Cannot Unstake';
           payload.redemption_date = 'N/A';
           break;
 
         case 'AVAX':
           payload.value_date = dayjs().add(Number(stakedDate), 'days').format(DATE_FORMAT);
-          payload.interest_period = `${stakedDate || 0} ${Number(stakedDate) > 1 ? t('common.days') : t('common.day')}`;
-          payload.redemption_period = t('stake.can_not_unstake');
+          payload.interest_period = `${stakedDate || 0} ${Number(stakedDate) > 1 ? 'days' : 'day'}`;
+          payload.redemption_period = 'Cannot Unstake';
           payload.redemption_date = dayjs().add(Number(stakedDate), 'days').format(DATE_FORMAT);
 
           break;
 
         case 'IOTX':
           payload.value_date = dayjs().add(Number(stakedDate), 'days').format(DATE_FORMAT);
-          payload.interest_period = `${stakedDate || 0} ${Number(stakedDate) > 1 ? t('common.days') : t('common.day')}`;
-          payload.redemption_period = t('stake.can_not_unstake');
+          payload.interest_period = `${stakedDate || 0} ${Number(stakedDate) > 1 ? 'days' : 'day'}`;
+          payload.redemption_period = 'Cannot Unstake';
           payload.redemption_date = dayjs().add(Number(stakedDate), 'days').format(DATE_FORMAT);
 
           break;
 
         case 'IOST':
-          payload.redemption_period = `3 ${t('common.days')}`;
+          payload.redemption_period = `3 days`;
 
           break;
 
         case 'ORBS':
-          payload.redemption_period = `14 ${t('common.days')}`;
+          payload.redemption_period = `14 days`;
           break;
 
         case 'ATOM':
-          payload.redemption_period = `21 ${t('common.days')}`;
+          payload.redemption_period = `21 days`;
           break;
         default:
           break;

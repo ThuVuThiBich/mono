@@ -110,15 +110,17 @@ const StakeModalConfirm: FC<Props> = ({ visible, onClose, payload, min, apy }) =
         </Checkbox>
       </div>
 
-      <Button
-        loading={isLoading}
-        disabled={!acceptTerm}
-        onClick={handleSubmit}
-        type="info"
-        className={styles.btnSubmit}
-      >
-        Stake
-      </Button>
+      <div className="f-center">
+        <Button
+          loading={isLoading}
+          disabled={!acceptTerm}
+          onClick={handleSubmit}
+          type="info"
+          className={styles.btnSubmit}
+        >
+          Stake
+        </Button>
+      </div>
     </Modal>
   );
 };

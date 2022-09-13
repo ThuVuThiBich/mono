@@ -284,10 +284,11 @@ const StakeModal: FC = () => {
             </Col>
           </Row>
         </div>
-
-        <Button disabled={!acceptTerm} onClick={handleSubmit} type="info" className={styles.btnSubmit}>
-          Stake
-        </Button>
+        <div className="f-center">
+          <Button disabled={!acceptTerm} onClick={handleSubmit} type="info" className={styles.btnSubmit}>
+            Stake
+          </Button>
+        </div>
       </Modal>
       {payload && (
         <StakeModalConfirm
