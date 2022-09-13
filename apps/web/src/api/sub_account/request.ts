@@ -9,8 +9,8 @@ import {
   TListSubAccount,
 } from './types';
 
-export const createSubAccount = async (request: TRequestCreateSub): Promise<any> => {
-  const { data } = await request.post(`/subAccount/create`, request);
+export const createSubAccount = async (params: TRequestCreateSub): Promise<any> => {
+  const { data } = await request.post(`/subAccount/create`, params);
   return data;
 };
 
@@ -19,20 +19,16 @@ export const getSubAccounts = async (): Promise<TListSubAccount[]> => {
   return data;
 };
 
-export const deleteSubAccount = async (request: TRequestDeleteSub): Promise<any> => {
-  const { data } = await request.post(`/subAccount/remove`, request);
+export const deleteSubAccount = async (params: TRequestDeleteSub): Promise<any> => {
+  const { data } = await request.post(`/subAccount/remove`, params);
   return data;
 };
 
-export const transferBetweenSub = async (request: TRequestTransfer): Promise<any> => {
-  const { data } = await request.post(`/subAccount/asset/transfer`, request);
+export const transferBetweenSub = async (params: TRequestTransfer): Promise<any> => {
+  const { data } = await request.post(`/subAccount/asset/transfer`, params);
   return data;
 };
-export const changeNameSubAcc = async (request: TRequestChangeSub): Promise<any> => {
-  const { data } = await request.post(`/subAccount/update`, request);
-  return data;
-};
-export const getCoinsWithSubAccount = async (request: TRequestCoinSub): Promise<WalletGroupItem> => {
-  const { data } = await request.post(`/bb/asset/show/account`, request);
+export const changeNameSubAcc = async (params: TRequestChangeSub): Promise<any> => {
+  const { data } = await request.post(`/subAccount/update`, params);
   return data;
 };

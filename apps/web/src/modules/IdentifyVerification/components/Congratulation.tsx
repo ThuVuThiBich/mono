@@ -18,13 +18,13 @@ const Congratulation: React.FC = () => {
       <Result
         status="success"
         icon={<img className={styles.icon} alt="check" src={CheckIcon.src} />}
-        title={<span className={styles.title}>{t('kyc.subscription_success')}</span>}
+        title={<span className={styles.title}>Your Subscription Is Successful</span>}
         subTitle={<p className={styles.description}>{/* <Trans i18nKey="kyc.subscription_success_desc" /> */}</p>}
         extra={[
           <Button type="secondary" key="dashboard">
             <Link href={routes.accountManagement}>
               <a>
-                {t('kyc.to_dashboard')} <ArrowRightOutlined />
+                To Dashboard <ArrowRightOutlined />
               </a>
             </Link>
           </Button>,
