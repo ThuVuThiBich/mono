@@ -50,10 +50,10 @@ const items = [
     title: 'History',
     path: routes.history,
   },
-  {
-    title: 'Sub Accounts',
-    path: routes.subAccount,
-  },
+  // {
+  //   title: 'Sub Accounts',
+  //   path: routes.subAccount,
+  // },
 ];
 
 const UserSelection: FC = () => {

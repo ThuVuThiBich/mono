@@ -154,14 +154,14 @@ const WalletTable: FC = () => {
           <img alt="convert" width={28} height={28} src="/images/wallet/convert.svg" />
         </Button>
 
-        <Button
+        {/* <Button
           className={clsx(styles.btnIcon, isXCR && styles.btnXCR)}
           size="small"
           disabled={subAccounts?.length === 1 || isXCR}
           onClick={() => dispatch(setModalTransfer({ coin: item.coinType }))}
         >
           <img alt="transfer" src="/images/wallet/transfer.svg" />
-        </Button>
+        </Button> */}
 
         <Button
           disabled={isXCR || !creditCoin?.includes(item.coinType)}

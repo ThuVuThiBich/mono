@@ -14,7 +14,7 @@ interface CustomLayoutProps {
 export const CustomLayout = ({ children }: CustomLayoutProps) => {
   return (
     <Layout>
-      <Moduler />
+      {/* <Moduler /> */}
       <Header />
       <main className={styles.main}>{children}</main>
       <Footer className={styles.footer}>Ultorex Dealing © 2022, All Rights Reserved.</Footer>

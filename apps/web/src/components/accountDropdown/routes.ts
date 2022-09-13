@@ -16,9 +16,9 @@ export const accountRoutes = [
     title: 'History',
     path: routes.history,
   },
-  {
-    icon: '/images/svgs/history-duotone.svg',
-    title: 'Sub Accounts',
-    path: routes.subAccount,
-  },
+  // {
+  //   icon: '/images/svgs/history-duotone.svg',
+  //   title: 'Sub Accounts',
+  //   path: routes.subAccount,
+  // },
 ];
