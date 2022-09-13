@@ -14,8 +14,6 @@ export function useMarketGroupQuery(options?: UseQueryOptions<MarketGroupItem[]>
 }
 
 export const placeOrderMarket = async (params: any): Promise<any> => {
-  console.log('zoooooo');
-
   const { data } = await request.post(`/bb/market/order/place-order`, params);
   return data;
 };

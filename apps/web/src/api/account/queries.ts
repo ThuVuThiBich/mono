@@ -54,13 +54,9 @@ export const useRightsToken = (option?: UseQueryOptions<IRightsTokenInfo>) => {
   return useQuery<IRightsTokenInfo>('/user/getSettingFlagRightsTokenDailyReport', getRightsTokenInfo, option);
 };
 
-export const ETHSwap = async (request: any): Promise<any> => {
-  const { data } = await request.post(`/bb/swapFunction`, request);
-  return data;
-};
 
-export const useUser = (option?: UseQueryOptions<boolean, Error>) => {
-  const { data, ...rest } = useQuery<boolean, Error>('me', getMe, {
+export const useUser = (option?: UseQueryOptions<any, Error>) => {
+  const { data, ...rest } = useQuery<any, Error>('me', getMe, {
     // enabled: false,
     refetchOnMount: true,
     // initialData: parseJson(getCookies(USER_COOKIES.userAccessToken)) as any,

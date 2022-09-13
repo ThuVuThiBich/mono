@@ -11,8 +11,8 @@ import {
 import axios from 'axios';
 import { apiBaseUrl, USER_COOKIES } from 'utils/constant';
 
-export const changeNickName = async (request: TChangeNickName): Promise<TChangeNickNameResponse> => {
-  const { data } = await request.post(`/consumer/edit/nickName`, request);
+export const changeNickName = async (params: TChangeNickName): Promise<TChangeNickNameResponse> => {
+  const { data } = await request.post(`/consumer/edit/nickName`, params);
   return data;
 };
 

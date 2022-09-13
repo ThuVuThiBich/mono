@@ -1,25 +1,17 @@
 import { UserOutlined } from '@ant-design/icons';
 import { Col, Form, message, Row, Spin, Upload } from 'antd';
 import clsx from 'clsx';
-import { FC, useMemo, useState } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
 import { useMutation } from 'react-query';
 import styles from './AccountInformation.module.css';
 
-import {
-  changeAvatarRequest,
-  changeNickName,
-  toggleRightsTokenRequest,
-  useCurrencyGroupItem,
-  useRightsToken,
-} from 'api/account';
-import { useReferralInfo } from 'api/kyc/queries';
-import { useSubAccountsQuery } from 'api/sub_account';
+import { Avatar, Button, InputWithLabel, Option, SelectWithLabel, Surface } from '@cross/ui';
+import { changeAvatarRequest, changeNickName, useCurrencyGroupItem, useUser } from 'api/account';
 import { TError } from 'api/types';
 import { useAppDispatch, useAppSelector, useTypeSafeTranslation } from 'hooks';
 import { coinSymbol } from 'modules/AccountPage/constant';
 import { getCurrentCurrency, setCurrentCurrency } from 'store/ducks/account/slice';
 import { fileChangeValidator, nicknameRule } from 'utils/validator';
-import { Avatar, Button, InputWithLabel, Option, SelectWithLabel, Surface } from '@cross/ui';
 
 const validateForm = {
   required: '* ${label} is required!',
@@ -32,43 +24,22 @@ const selectedCurrency = ['USD', 'JPY', 'CNY', 'EUR', 'GBP', 'KRW', 'TWD', 'TRY'
 
 const AccountInformation: FC = () => {
   const dispatch = useAppDispatch();
-  const user = { sub: '', picture: '' };
-  // const { user, checkSession } = useUser();
+  const { user } = useUser();
   const { t } = useTypeSafeTranslation();
   const [btnEdit, setBtnEdit] = useState(false);
   const currentCurrency = useAppSelector(getCurrentCurrency);
 
   const [form] = Form.useForm();
 
-  const { data: subAccountData, isLoading: loadingSubAccount } = useSubAccountsQuery({
-    onSettled: (subAccountDatas) => {
-      const mainAccount = subAccountDatas?.find((acc) => !acc.parentAccountId);
-      form.setFieldsValue({
-        nickName: mainAccount?.nickName,
-        email: mainAccount?.account,
-      });
-    },
-  });
+  useEffect(() => {
+    form.setFieldsValue({
+      nickName: user?.nickName,
+      email: user?.account,
+      uuid: user?.accountIdHex,
+    });
+  }, [form, user]);
 
-  const { data: rightsInfo, isLoading: rightsLoading, refetch: refetchRightsToken } = useRightsToken();
-
-  const { isLoading: loadingReferral } = useReferralInfo(
-    { sub: user?.sub || '' },
-    {
-      onSettled: (refferralData) => {
-        form.setFieldsValue({ referralCode: refferralData?.referralCode, inviter: refferralData?.inviter });
-      },
-    }
-  );
-
-  const { mutateAsync: mutateNickname, isLoading: changeNickNameLoading } = useMutation(changeNickName);
-
-  const { mutate: toggleRightsToken, isLoading: toggleRighstLoading } = useMutation(toggleRightsTokenRequest, {
-    onSuccess: async () => {
-      message.success(t('sub_account.update.update_success'));
-      refetchRightsToken();
-    },
-  });
+  const { mutateAsync: mutateNickname, isLoading: changeNickNameLoading } = useMutation(changeNickName, {});
 
   const { mutate: changeAvatar, isLoading: changeAvatarLoading } = useMutation(changeAvatarRequest, {
     onSuccess: async () => {
@@ -77,7 +48,7 @@ const AccountInformation: FC = () => {
       }, 2000);
     },
     onError: (error: TError) => {
-      message.error(error.message);
+      message.error(error.msg_code);
     },
   });
 
@@ -98,9 +69,8 @@ const AccountInformation: FC = () => {
   });
 
   const onSave = async (values: any) => {
-    const mainAccount = subAccountData?.find((acc) => !acc.parentAccountId);
     try {
-      if (mainAccount?.nickName !== values.nickName) {
+      if (user?.nickName !== values.nickName) {
         await mutateNickname({
           nickName: values.nickName,
         });
@@ -111,7 +81,7 @@ const AccountInformation: FC = () => {
       message.success('update successfully');
       setBtnEdit(false);
     } catch (err: any) {
-      message.error(err.message);
+      message.error(err.msg_code);
     }
   };
 
@@ -124,10 +94,6 @@ const AccountInformation: FC = () => {
     } catch (err) {
       console.log(err);
     }
-  };
-
-  const toggleRightTokenReport = (value: boolean) => {
-    toggleRightsToken(value);
   };
 
   const timezone = useMemo(() => {
@@ -146,11 +112,7 @@ const AccountInformation: FC = () => {
     return (country[1] || country[0] || '') + ' ' + utc_time;
   }, []);
 
-  const mainAcc = useMemo(() => {
-    return subAccountData?.find((acc) => !acc.parentAccountId);
-  }, [subAccountData]);
-
-  const isLoading = loadingSubAccount || loadingReferral || rightsLoading;
+  const isLoading = changeNickNameLoading;
 
   return (
     <Spin spinning={isLoading}>
@@ -167,7 +129,7 @@ const AccountInformation: FC = () => {
           <Row className={styles.headInfo}>
             <Col sm={12} lg={15} xs={15}>
               <div className={clsx(styles.avatarPic, 'f-start')}>
-                <Avatar src={user?.picture} className={styles.avatar} size={98} icon={<UserOutlined />} />
+                <Avatar src={''} className={styles.avatar} size={98} icon={<UserOutlined />} />
                 <div className={styles.upload}>
                   <span className="text-14 primary">Upload Picture</span>
                   <p className="text-12 secondary">Max file size 5MB</p>
@@ -211,6 +173,7 @@ const AccountInformation: FC = () => {
           </Row>
           <div className={styles.form}>
             <Form.Item
+              label="Nickname"
               name="nickName"
               rules={[
                 { required: true, whitespace: true },
@@ -235,8 +198,8 @@ const AccountInformation: FC = () => {
               <InputWithLabel disabled id="phone" label="Phone" placeholder="Your Phone" />
             </Form.Item>
 
-            <Form.Item>
-              <InputWithLabel disabled id="UUID" label="UUID" value={mainAcc?.accountIdHex} />
+            <Form.Item name="uuid">
+              <InputWithLabel disabled id="uuid" label="UUID" />
             </Form.Item>
 
             <Form.Item name="referralCode">
