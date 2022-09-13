@@ -1,30 +1,28 @@
-import { Col, Row, Space, Tooltip } from 'antd';
-import { FC, useMemo } from 'react';
-import styles from './AccountSetup.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button, Surface } from '@cross/ui';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-import { useTranslation } from 'next-i18next';
-import SecureIcon from 'modules/AccountPage/assets/icon-secure.png';
-import VerifiedIcon from 'modules/AccountPage/assets/icon-verified.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Col, Row, Space, Tooltip } from 'antd';
+import { TGetUserInfoResponse, useGetUserInfo } from 'api/account';
+import { useAppSelector } from 'hooks';
 import ActiveSecure from 'modules/AccountPage/assets/active-secure.png';
 import ActiveVerified from 'modules/AccountPage/assets/active-verified.png';
+import SecureIcon from 'modules/AccountPage/assets/icon-secure.png';
+import VerifiedIcon from 'modules/AccountPage/assets/icon-verified.png';
 import UnderReview from 'modules/AccountPage/assets/under-review.png';
 import Link from 'next/link';
-import { routes } from 'types/routes';
-import { TGetUserInfoResponse, useGetUserInfo } from 'api/account';
-import { Button, Surface } from '@cross/ui';
 import { useRouter } from 'next/router';
-import { toggleMFAModal } from 'store/ducks/system/slice';
+import { FC, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
-import { useAppSelector } from 'hooks';
 import { getUserAuth } from 'store/ducks/account/slice';
+import { toggleMFAModal } from 'store/ducks/system/slice';
+import { routes } from 'types/routes';
+import styles from './AccountSetup.module.css';
 
 interface MFAProps {
   user?: TGetUserInfoResponse;
 }
 
 const MFA: FC<MFAProps> = () => {
-  const { t } = useTranslation();
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -64,25 +62,25 @@ const MFA: FC<MFAProps> = () => {
 };
 
 interface KYCProps {
-  user?: TGetUserInfoResponse;
+  user?: any;
 }
 
 const KYC: FC<KYCProps> = ({ user }) => {
-  const { t } = useTranslation();
 
   const get = {
     kycStatus() {
-      return user?.kyc_status || 0;
+      // return user?.kyc_status || 0;
+      return user?.realVerify || 0;
     },
     kycTitle() {
       const status = this.kycStatus();
       switch (status) {
         case 1:
-          return t('account_management.setup.KYC_submitted_title');
+          return 'Under Review';
         case 2:
-          return t('account_management.setup.KYC_passed_title');
+          return 'Verified';
         case 3:
-          return t('account_management.setup.KYC_failed_title');
+          return 'Verified Failed';
         default:
           return 'Not Verified';
       }
@@ -104,11 +102,11 @@ const KYC: FC<KYCProps> = ({ user }) => {
       const status = this.kycStatus();
       switch (status) {
         case 1:
-          return t('account_management.setup.KYC_submitted_description');
+          return 'Your documents are being reviewed';
         case 2:
-          return t('account_management.setup.KYC_passed_description');
+          return 'You Completed KYC';
         case 3:
-          return t('account_management.setup.KYC_failed_description');
+          return 'Your documents were rejected';
         default:
           return 'Setup KYC to secure your account';
       }
@@ -121,7 +119,7 @@ const KYC: FC<KYCProps> = ({ user }) => {
       const status = this.kycStatus();
       switch (status) {
         case 2:
-          return t('account_management.setup.active_verified');
+          return 'Verified';
         default:
           return 'Verify';
       }

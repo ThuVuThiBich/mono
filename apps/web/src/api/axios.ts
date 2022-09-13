@@ -1,12 +1,10 @@
 /* eslint-disable no-restricted-syntax */
+import { getCookies, setCookies } from '@cross/cookies';
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { i18n } from 'next-i18next';
-import { apiBaseUrl, USER_COOKIES, __prod__ } from 'utils/constant';
 import Router from 'next/router';
 import { logout } from 'utils/auth';
-import { getCookies, parseJson, removeCookies, setCookies } from '@cross/cookies';
-import router from 'next/router';
-import { routes } from 'types/routes';
+import { apiBaseUrl, USER_COOKIES, __prod__ } from 'utils/constant';
 
 const defaultErrorCode = 'error:e_ERROR';
 
@@ -14,7 +12,6 @@ export const request = axios.create({
   baseURL: apiBaseUrl,
 });
 
-const subAccountExcludeURL = ['/consumer/edit/nickName'];
 const fileExportURL = [
   '/user/asset/walletHistory/excel',
   '/bb/market/order/historyExcel',
@@ -44,19 +41,20 @@ const handleSuccess = (res: AxiosResponse) => {
     }
     // !Some request that return string instead of object
     if (typeof res.data !== 'object' && res.data !== 'disabled') {
-      res.data = { message: i18n?.t(defaultErrorCode) };
+      // res.data = { message: i18n?.t(defaultErrorCode) };
+      res.data.message = errorCode;
     } else {
-      res.data.message = i18n?.exists(errorCode) ? i18n?.t(errorCode) : i18n?.t(defaultErrorCode);
+      // res.data.message = i18n?.exists(errorCode) ? i18n?.t(errorCode) : i18n?.t(defaultErrorCode);
+      res.data.message = errorCode;
     }
-    console.log('reject axios', res.data);
+    return Promise.reject(res.data);
+  }
+  // if (statusCode === -2) {
+  //   removeCookies(USER_COOKIES.userAccessToken);
+  //   router.push(routes.login);
+  //   return Promise.reject(res.data);
+  // }
 
-    return Promise.reject(res.data);
-  }
-  if (statusCode === -2) {
-    removeCookies(USER_COOKIES.userAccessToken);
-    router.push(routes.login);
-    return Promise.reject(res.data);
-  }
   if (res.request) return res.data;
 };
 
