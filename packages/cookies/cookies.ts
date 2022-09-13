@@ -1,7 +1,7 @@
 import { parseCookies, setCookie, destroyCookie } from 'nookies';
 
-export const getCookies = (key: string) => {
-  const cookie = parseCookies();
+export const getCookies = (key: string, ctx?: any) => {
+  const cookie = parseCookies(ctx);
   return cookie[key];
 };
 
