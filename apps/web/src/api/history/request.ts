@@ -9,23 +9,23 @@ import {
   IOrderHistoryExportParams,
 } from './types';
 
-export const searchOrderHistory = async (request: TRequestHistory): Promise<TSuccessResponse> => {
-  const { data } = await request.post(`/bb/market/order/order/history`, request);
+export const searchOrderHistory = async (params: TRequestHistory): Promise<TSuccessResponse> => {
+  const { data } = await request.post(`/bb/market/order/order/history`, params);
   return data;
 };
 
-export const searchTradeHistory = async (request: TRequestHistory): Promise<TSuccessResponse> => {
-  const { data } = await request.post(`/bb/market/order/trade/history`, request);
+export const searchTradeHistory = async (params: TRequestHistory): Promise<TSuccessResponse> => {
+  const { data } = await request.post(`/bb/market/order/trade/history`, params);
   return data;
 };
 
-export const cancelOrder = async (request: TCancelOrder) => {
-  await request.post(`/bb/market/order/cancel-order`, request);
+export const cancelOrder = async (params: TCancelOrder) => {
+  await request.post(`/bb/market/order/cancel-order`, params);
   return;
 };
 
-export const cancelAllOrder = async (request: TCancelAllOrder) => {
-  await request.post(`/bb/market/order/cancel-all-order`, request);
+export const cancelAllOrder = async (params: TCancelAllOrder) => {
+  await request.post(`/bb/market/order/cancel-all-order`, params);
   return;
 };
 

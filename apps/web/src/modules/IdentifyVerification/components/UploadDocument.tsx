@@ -28,6 +28,7 @@ const UploadDocument: React.FC<UploadDocumentProps> = ({ onSuccess, kycData, isL
 
   const onFinish = (values: any) => {
     const tempData = { ...data, ...values };
+
     setData(tempData);
     if (onSuccess) {
       onSuccess(tempData);
